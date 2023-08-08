@@ -4,9 +4,10 @@ const config: StorybookConfig = {
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
+    "@storybook/addon-postcss",
     "@storybook/addon-interactions",
   ],
-  staticDirs: ['public'],
+  staticDirs: ["public"],
   framework: {
     name: "@storybook/nextjs",
     options: {},
@@ -14,5 +15,15 @@ const config: StorybookConfig = {
   docs: {
     autodocs: "tag",
   },
+  babel: async (options) => ({
+    ...options,
+    plugins: [
+      "@babel/plugin-proposal-class-properties",
+      "@babel/plugin-proposal-private-methods",
+      "@babel/plugin-proposal-private-property-in-object",
+    ],
+  }),
+
+  typescript: { reactDocgen: false },
 };
 export default config;
