@@ -1,0 +1,3 @@
+[submodule "gihyo_server"]
+	path = gihyo_server
+	url = https://github.com/gihyo-book/ts-nextbook-json
