@@ -15,7 +15,7 @@ describe('Button', () => {
         renderResult = render(
             <Button variant="primary" onClick={handleClick}>
                 Button
-            </Button>
+            </Button>,
         );
     });
 
