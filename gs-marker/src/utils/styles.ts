@@ -42,7 +42,6 @@ export function toPropValue<T>(
         const result = [];
         for (const responsiveKey in prop) {
             if (responsiveKey === 'base') {
-                // デフォルトのスタイル
                 result.push(
                     `${propKey}: ${toThemeValueIfNeeded(
                         propKey,
@@ -56,7 +55,6 @@ export function toPropValue<T>(
                 responsiveKey === 'lg' ||
                 responsiveKey === 'xl'
             ) {
-                // メディアクエリでのスタイル
                 const breakpoint = BREAKPOINTS[responsiveKey];
                 const style = `${propKey}: ${toThemeValueIfNeeded(
                     propKey,
@@ -169,6 +167,7 @@ function isLetterSpacingThemeKeys(
     prop: any,
     theme: AppTheme,
 ): prop is LetterSpacingThemeKeys {
+    // eslint-disable-next-line prettier/prettier
     return Object.keys(theme.letterSpacings).filter((key) => key == prop).length > 0;
 }
 
