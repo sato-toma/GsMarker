@@ -86,7 +86,6 @@ const variants = {
 
 const Button = Styled.button<ButtonProps>`
     ${({ variant, color, backgroundColor, pseudoClass, theme }) => {
-        // バリアントのスタイルの適用
         if (variant && variants[variant]) {
             const styles = [];
             !color && styles.push(toPropValue('color', variants[variant].color, theme));
