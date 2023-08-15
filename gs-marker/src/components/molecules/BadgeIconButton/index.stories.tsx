@@ -33,7 +33,9 @@ export default {
     },
 } as Meta<typeof BadgeIconButton>;
 
-const Template: StoryFn<typeof BadgeIconButton> = (args) => <BadgeIconButton {...args} />;
+const Template: StoryFn<typeof BadgeIconButton> = (args) => (
+    <BadgeIconButton {...args} />
+);
 
 export const SearchBadgeIcon = Template.bind({});
 SearchBadgeIcon.args = {
