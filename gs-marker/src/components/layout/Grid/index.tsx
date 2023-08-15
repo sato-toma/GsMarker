@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import styled from 'styled-components';
+import Styled from 'styled-components';
 import type {
     CSSPropertyGridArea,
     CSSPropertyGridAutoFlow,
@@ -26,7 +26,7 @@ type GridProps = BoxProps & {
     gridArea?: Responsive<string>;
 };
 
-// const Grid = styled(Box)<GridProps>`
+// const Grid = Styled(Box)<GridProps>`
 //     ${(props) => toPropValue('grid-gap', props.gridGap, props.theme)}
 //     ${(props) => toPropValue('grid-column-gap', props.gridColumnGap, props.theme)}
 //   ${(props) => toPropValue('grid-row-gap', props.gridRowGap, props.theme)}
@@ -41,7 +41,7 @@ type GridProps = BoxProps & {
 //   ${(props) => toPropValue('grid-area', props.gridArea, props.theme)}
 // `;
 
-const Grid = styled(Box)<GridProps>`
+const Grid = Styled(Box)<GridProps>`
     ${(props) => toPropValue('grid-gap', props.gridGap, theme)}
     ${(props) => toPropValue('grid-column-gap', props.gridColumnGap, theme)}
     ${(props) => toPropValue('grid-row-gap', props.gridRowGap, theme)}

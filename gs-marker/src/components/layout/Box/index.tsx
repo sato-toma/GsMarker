@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import Styled from 'styled-components';
 import type { Responsive } from 'types/styles';
 import { theme } from './../../../themes';
 import { toPropValue, Color, Space } from './../../../utils/styles';
@@ -25,7 +25,7 @@ export type BoxProps = {
     paddingLeft?: Responsive<Space>;
 };
 
-// const Box = styled.div<BoxProps>`
+// const Box = Styled.div<BoxProps>`
 //     ${(props) => toPropValue('color', props.color, props.theme)}
 //     ${(props) => toPropValue('background-color', props.backgroundColor, props.theme)}
 //     ${(props) => toPropValue('width', props.width, props.theme)}
@@ -47,7 +47,7 @@ export type BoxProps = {
 //     ${(props) => toPropValue('padding-right', props.paddingRight, props.theme)}
 // `;
 
-const Box = styled.div<BoxProps>`
+const Box = Styled.div<BoxProps>`
     ${(props) => toPropValue('color', props.color, theme)}
     ${(props) => toPropValue('background-color', props.backgroundColor, theme)}
     ${(props) => toPropValue('width', props.width, theme)}

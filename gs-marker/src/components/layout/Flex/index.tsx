@@ -1,5 +1,5 @@
 /* eslint-disable prettier/prettier */
-import styled from 'styled-components';
+import Styled from 'styled-components';
 import type {
     Responsive,
     CSSPropertyAlignItems,
@@ -30,7 +30,7 @@ type FlexProps = BoxProps & {
     order?: Responsive<string>;
 };
 
-// const Flex = styled(Box)<FlexProps>`
+// const Flex = Styled(Box)<FlexProps>`
 //     ${(props) => toPropValue('align-items', props.alignItems, props.theme)}
 //     ${(props) => toPropValue('align-content', props.alignContent, props.theme)}
 //   ${(props) => toPropValue('justify-content', props.justifyContent, props.theme)}
@@ -45,7 +45,7 @@ type FlexProps = BoxProps & {
 //   ${(props) => toPropValue('order', props.order, props.theme)}
 // `;
 
-const Flex = styled(Box)<FlexProps>`
+const Flex = Styled(Box)<FlexProps>`
     ${(props) => toPropValue('align-items', props.alignItems, theme)}
     ${(props) => toPropValue('align-content', props.alignContent, theme)}
     ${(props) => toPropValue('justify-content', props.justifyContent, theme)}
