@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import Styled from 'styled-components';
 import type { Responsive } from 'types/styles';
-import { toPropValue, Space, Color, FontSize, LetterSpacing, LineHeight } from './../../utils/styles';
+import { toPropValue, Space, Color, FontSize, LetterSpacing, LineHeight } from './../../../utils/styles';
 
 export type TextVariant = 'extraSmall' | 'small' | 'medium' | 'mediumLarge' | 'large' | 'extraLarge';
 

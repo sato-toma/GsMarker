@@ -1,8 +1,8 @@
 /* eslint-disable prettier/prettier */
 import Styled from 'styled-components';
-import { theme } from './../../themes';
-import { Responsive } from './../../types';
-import { toPropValue, Color, FontSize, LetterSpacing, LineHeight, Space } from './../../utils/styles';
+import { theme } from './../../../themes';
+import { Responsive } from './../../../types';
+import { toPropValue, Color, FontSize, LetterSpacing, LineHeight, Space } from './../../../utils/styles';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'danger';
 
