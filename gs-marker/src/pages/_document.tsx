@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import Document, { DocumentContext, DocumentInitialProps } from "next/document";
 import { ServerStyleSheet } from "styled-components";
 

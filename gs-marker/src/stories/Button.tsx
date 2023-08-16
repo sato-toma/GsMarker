@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unknown-property */
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import './button.css';
 

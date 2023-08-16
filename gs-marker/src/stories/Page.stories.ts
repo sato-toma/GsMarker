@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import type { Meta, StoryObj } from '@storybook/react';
 import { within, userEvent } from '@storybook/testing-library';
 
