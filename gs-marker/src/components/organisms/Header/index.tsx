@@ -117,12 +117,15 @@ const Header = () => {
                         {(() => {
                             if (authUser) {
                                 return (
-                                    <Link href={`/users/${authUser.id}`} passHref>
+                                    <Link
+                                        href={`/users/${authUser.id}`}
+                                        passHref
+                                    >
                                         <Anchor as="a">
                                             <ShapeImage
                                                 shape="circle"
                                                 src={authUser.profileImageUrl}
-                                                alt={authUser.id}
+                                                alt={authUser.id.toString()}
                                                 width={24}
                                                 height={24}
                                                 data-testid="profile-shape-image"
@@ -131,7 +134,7 @@ const Header = () => {
                                     </Link>
                                 );
                             } else if (isLoading) {
-                                 return <Spinner size={20} strokeWidth={2} />;
+                                return <Spinner size={20} strokeWidth={2} />;
                             } else {
                                 return (
                                     <Link href="/signin" passHref>
