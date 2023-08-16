@@ -11,7 +11,6 @@ import type {
     CSSPropertyFlexWrap,
     CSSPropertyAlignSelf,
 } from 'types/styles';
-import { theme } from './../../../themes';
 import { toPropValue } from './../../../utils/styles';
 import Box, { BoxProps } from './../Box';
 
@@ -30,34 +29,19 @@ type FlexProps = BoxProps & {
     order?: Responsive<string>;
 };
 
-// const Flex = Styled(Box)<FlexProps>`
-//     ${(props) => toPropValue('align-items', props.alignItems, props.theme)}
-//     ${(props) => toPropValue('align-content', props.alignContent, props.theme)}
-//   ${(props) => toPropValue('justify-content', props.justifyContent, props.theme)}
-//   ${(props) => toPropValue('justify-items', props.justifyItems, props.theme)}
-//   ${(props) => toPropValue('flex-wrap', props.flexWrap, props.theme)}
-//   ${(props) => toPropValue('flex-basis', props.flexBasis, props.theme)}
-//   ${(props) => toPropValue('flex-direction', props.flexDirection, props.theme)}
-//   ${(props) => toPropValue('flex-grow', props.flexGrow, props.theme)}
-//   ${(props) => toPropValue('flex-shrink', props.flexShrink, props.theme)}
-//   ${(props) => toPropValue('justify-self', props.justifySelf, props.theme)}
-//   ${(props) => toPropValue('align-self', props.alignSelf, props.theme)}
-//   ${(props) => toPropValue('order', props.order, props.theme)}
-// `;
-
 const Flex = Styled(Box)<FlexProps>`
-    ${(props) => toPropValue('align-items', props.alignItems, theme)}
-    ${(props) => toPropValue('align-content', props.alignContent, theme)}
-    ${(props) => toPropValue('justify-content', props.justifyContent, theme)}
-    ${(props) => toPropValue('justify-items', props.justifyItems, theme)}
-    ${(props) => toPropValue('flex-wrap', props.flexWrap, theme)}
-    ${(props) => toPropValue('flex-basis', props.flexBasis, theme)}
-    ${(props) => toPropValue('flex-direction', props.flexDirection, theme)}
-    ${(props) => toPropValue('flex-grow', props.flexGrow, theme)}
-    ${(props) => toPropValue('flex-shrink', props.flexShrink, theme)}
-    ${(props) => toPropValue('justify-self', props.justifySelf, theme)}
-    ${(props) => toPropValue('align-self', props.alignSelf, theme)}
-    ${(props) => toPropValue('order', props.order, theme)}
+    ${(props) => toPropValue('align-items', props.alignItems, props.theme)}
+    ${(props) => toPropValue('align-content', props.alignContent, props.theme)}
+  ${(props) => toPropValue('justify-content', props.justifyContent, props.theme)}
+  ${(props) => toPropValue('justify-items', props.justifyItems, props.theme)}
+  ${(props) => toPropValue('flex-wrap', props.flexWrap, props.theme)}
+  ${(props) => toPropValue('flex-basis', props.flexBasis, props.theme)}
+  ${(props) => toPropValue('flex-direction', props.flexDirection, props.theme)}
+  ${(props) => toPropValue('flex-grow', props.flexGrow, props.theme)}
+  ${(props) => toPropValue('flex-shrink', props.flexShrink, props.theme)}
+  ${(props) => toPropValue('justify-self', props.justifySelf, props.theme)}
+  ${(props) => toPropValue('align-self', props.alignSelf, props.theme)}
+  ${(props) => toPropValue('order', props.order, props.theme)}
 `;
 
 Flex.defaultProps = {
