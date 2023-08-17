@@ -43,14 +43,14 @@ const HomePage: NextPage<HomePageProps> = ({
     <Layout>
       <Flex padding={2} justifyContent="center" backgroundColor="primary">
         <Flex
-          width={{ base: '100%', md: '1040px' }}
+          width={{ base: "100%", md: "1040px" }}
           justifyContent="space-between"
           alignItems="center"
-          flexDirection={{ base: 'column', md: 'row' }}
+          flexDirection={{ base: "column", md: "row" }}
         >
           <Box width="100%">
             <Text as="h1" marginBottom={0} color="white" variant="extraLarge">
-              Gihyo C2Cで
+              C2Cで
             </Text>
             <Text as="h1" marginTop={0} color="white" variant="extraLarge">
               お気に入りのアイテムを見つけよう
@@ -58,14 +58,13 @@ const HomePage: NextPage<HomePageProps> = ({
           </Box>
           <Box width="100%">
             <Text as="p" color="white" variant="mediumLarge">
-              Gihyo
               C2Cは実践的なNext.jsアプリケーション開発で使われるデモアプリです。モックサーバを使用しています。
               ソースコードは
               <Text
                 as="a"
-                style={{ textDecoration: 'underline' }}
+                style={{ textDecoration: "underline" }}
                 target="_blank"
-                href="https://github.com/gihyo-book/ts-nextbook-app"
+                href="https://github.com/sato-toma/GsMarker"
                 variant="mediumLarge"
                 color="white"
               >
@@ -83,7 +82,7 @@ const HomePage: NextPage<HomePageProps> = ({
         <Box
           paddingLeft={{ base: 2, md: 0 }}
           paddingRight={{ base: 2, md: 0 }}
-          width={{ base: '100%', md: '1040px' }}
+          width={{ base: "100%", md: "1040px" }}
         >
           <Box marginBottom={3}>
             <Text as="h2" variant="large">
@@ -106,7 +105,7 @@ const HomePage: NextPage<HomePageProps> = ({
         </Box>
       </Flex>
     </Layout>
-  )
+  );
 }
 
 export const getStaticProps: GetStaticProps = async () => {
