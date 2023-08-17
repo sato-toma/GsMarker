@@ -1,11 +1,4 @@
 /* eslint-disable @typescript-eslint/ban-types */
-import 'styled-components';
-
-export type AppTheme = typeof theme;
-declare module 'styled-components' {
-    export type DefaultTheme = AppTheme;
-}
-
 export type ResponsiveProp<T> = {
     base?: T;
     sm?: T;

@@ -1,7 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/ban-types */
 import { theme } from './../themes';
-import type { ResponsiveProp, Responsive, AppTheme } from './../types';
+import type { ResponsiveProp, Responsive } from './../types';
+
+export type AppTheme = typeof theme;
 
 type SpaceThemeKeys = keyof typeof theme.space;
 type ColorThemeKeys = keyof typeof theme.colors;
