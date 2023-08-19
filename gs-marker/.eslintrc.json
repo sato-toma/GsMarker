@@ -16,11 +16,11 @@
     "prettier/prettier": [
       "error",
       {
-        "trailingComma": "all",
-        "endOfLine": "lf",
-        "semi": false,
+        "trailingComma": "none",
+        "endOfLine": "crlf",
+        "semi": true,
         "singleQuote": true,
-        "printWidth": 80,
+        "printWidth": 120,
         "tabWidth": 2
       }
     ]
