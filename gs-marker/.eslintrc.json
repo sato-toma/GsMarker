@@ -17,10 +17,10 @@
       "error",
       {
         "trailingComma": "all",
-        "endOfLine": "lf",
-        "semi": false,
+        "endOfLine": "crlf",
+        "semi": true,
         "singleQuote": true,
-        "printWidth": 80,
+        "printWidth": 120,
         "tabWidth": 2
       }
     ]
