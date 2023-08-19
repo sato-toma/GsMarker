@@ -1,5 +1,5 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { SearchIcon, CloudUploadIcon, PersonOutlineIcon } from './'
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { SearchIcon, CloudUploadIcon, PersonOutlineIcon } from './';
 
 export default {
   title: 'Atoms/IconButton',
@@ -33,7 +33,7 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof SearchIcon>
+} as ComponentMeta<typeof SearchIcon>;
 
 const Template: ComponentStory<typeof SearchIcon> = (args) => (
   <>
@@ -41,6 +41,6 @@ const Template: ComponentStory<typeof SearchIcon> = (args) => (
     <CloudUploadIcon {...args} />
     <PersonOutlineIcon {...args} />
   </>
-)
+);
 
-export const Normal = Template.bind({})
+export const Normal = Template.bind({});

@@ -1,5 +1,5 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
-import Button from './index'
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import Button from './index';
 
 export default {
   title: 'Atoms/Button',
@@ -52,18 +52,18 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Button>
+} as ComponentMeta<typeof Button>;
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />
+const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
 // Primaryボタン
-export const Primary = Template.bind({})
-Primary.args = { variant: 'primary', children: 'Primary Button' }
+export const Primary = Template.bind({});
+Primary.args = { variant: 'primary', children: 'Primary Button' };
 
 // Secondaryボタン
-export const Secondary = Template.bind({})
-Secondary.args = { variant: 'secondary', children: 'Secondary Button' }
+export const Secondary = Template.bind({});
+Secondary.args = { variant: 'secondary', children: 'Secondary Button' };
 
 // Disabledボタン
-export const Disabled = Template.bind({})
-Disabled.args = { disabled: true, children: 'Disabled Button' }
+export const Disabled = Template.bind({});
+Disabled.args = { disabled: true, children: 'Disabled Button' };

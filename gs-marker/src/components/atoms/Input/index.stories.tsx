@@ -1,5 +1,5 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
-import Input from './index'
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import Input from './index';
 
 export default {
   title: 'Atoms/Input',
@@ -28,11 +28,11 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Input>
+} as ComponentMeta<typeof Input>;
 
-const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />
+const Template: ComponentStory<typeof Input> = (args) => <Input {...args} />;
 
-export const Normal = Template.bind({})
+export const Normal = Template.bind({});
 
-export const Error = Template.bind({})
-Error.args = { hasError: true }
+export const Error = Template.bind({});
+Error.args = { hasError: true };

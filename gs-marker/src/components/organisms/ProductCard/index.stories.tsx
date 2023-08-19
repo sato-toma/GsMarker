@@ -1,5 +1,5 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
-import ProductCard from './index'
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import ProductCard from './index';
 
 export default {
   title: 'Organisms/ProductCard',
@@ -43,35 +43,33 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof ProductCard>
+} as ComponentMeta<typeof ProductCard>;
 
-const Template: ComponentStory<typeof ProductCard> = (args) => (
-  <ProductCard {...args} />
-)
+const Template: ComponentStory<typeof ProductCard> = (args) => <ProductCard {...args} />;
 
 // Listingカード
-export const Listing = Template.bind({})
+export const Listing = Template.bind({});
 Listing.args = {
   variant: 'listing',
   title: 'ナイスシューズ',
   imageUrl: '/images/sample/1.jpg',
   price: 2000,
-}
+};
 
 // Smallカード
-export const Small = Template.bind({})
+export const Small = Template.bind({});
 Small.args = {
   variant: 'small',
   title: 'ナイスシューズ',
   imageUrl: '/images/sample/1.jpg',
   price: 2000,
-}
+};
 
 // Detailカード
-export const Detail = Template.bind({})
+export const Detail = Template.bind({});
 Detail.args = {
   variant: 'detail',
   title: 'ナイスシューズ',
   imageUrl: '/images/sample/1.jpg',
   price: 2000,
-}
+};

@@ -1,37 +1,34 @@
-import Link from 'next/link'
-import RectLoader from 'components/atoms/RectLoader'
-import Box from 'components/layout/Box'
-import ProductCard from 'components/organisms/ProductCard'
-import ProductCardList from 'components/organisms/ProductCardList'
-import useSearch from 'services/products/use-search'
-import type { ApiContext, Category, Condition } from 'types'
+import Link from 'next/link';
+import RectLoader from 'components/atoms/RectLoader';
+import Box from 'components/layout/Box';
+import ProductCard from 'components/organisms/ProductCard';
+import ProductCardList from 'components/organisms/ProductCardList';
+import useSearch from 'services/products/use-search';
+import type { ApiContext, Category, Condition } from 'types';
 
 const context: ApiContext = {
   apiRootUrl: process.env.NEXT_PUBLIC_API_BASE_PATH || '/api/proxy',
-}
+};
 
 interface ProductCardListContainerProps {
   /**
    * 検索クエリ - カテゴリ
    */
-  category?: Category
+  category?: Category;
   /**
    * 検索クエリ - 商品の状態
    */
-  conditions?: Condition[]
+  conditions?: Condition[];
 }
 
 /**
  * 商品カードリストコンテナ
  */
-const ProductCardListContainer = ({
-  category,
-  conditions,
-}: ProductCardListContainerProps) => {
+const ProductCardListContainer = ({ category, conditions }: ProductCardListContainerProps) => {
   const { products, isLoading } = useSearch(context, {
     category,
     conditions,
-  })
+  });
 
   return (
     <ProductCardList>
@@ -39,10 +36,10 @@ const ProductCardListContainer = ({
       {isLoading &&
         Array.from(Array(16), (_, k) => (
           <Box key={k}>
-            <Box display={{ base: "none", md: "block" }}>
+            <Box display={{ base: 'none', md: 'block' }}>
               <RectLoader width={240} height={240} />
             </Box>
-            <Box display={{ base: "block", md: "none" }}>
+            <Box display={{ base: 'block', md: 'none' }}>
               <RectLoader width={160} height={160} />
             </Box>
           </Box>
@@ -66,6 +63,6 @@ const ProductCardListContainer = ({
         ))}
     </ProductCardList>
   );
-}
+};
 
-export default ProductCardListContainer
+export default ProductCardListContainer;

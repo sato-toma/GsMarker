@@ -1,6 +1,6 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { useState } from 'react'
-import FilterGroup from './index'
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { useState } from 'react';
+import FilterGroup from './index';
 
 export default {
   title: 'Molecules/FilterGroup',
@@ -26,19 +26,19 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof FilterGroup>
+} as ComponentMeta<typeof FilterGroup>;
 
 const Template: ComponentStory<typeof FilterGroup> = (args) => {
-  const [value, setValue] = useState<string[]>([])
+  const [value, setValue] = useState<string[]>([]);
   const handleChange = (value: string[]) => {
-    setValue(value)
-    args && args.onChange && args.onChange(value)
-  }
+    setValue(value);
+    args && args.onChange && args.onChange(value);
+  };
 
-  return <FilterGroup value={value} onChange={handleChange} {...args} />
-}
+  return <FilterGroup value={value} onChange={handleChange} {...args} />;
+};
 
-export const Standard = Template.bind({})
+export const Standard = Template.bind({});
 Standard.args = {
   title: 'All categories',
   items: [
@@ -46,4 +46,4 @@ Standard.args = {
     { label: 'Books', name: 'books' },
     { label: 'Shoes', name: 'shoes' },
   ],
-}
+};

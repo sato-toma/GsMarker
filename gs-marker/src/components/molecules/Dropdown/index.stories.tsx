@@ -1,5 +1,5 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
-import Dropdown from './index'
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import Dropdown from './index';
 
 export default {
   title: 'Molecules/Dropdown',
@@ -40,13 +40,11 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Dropdown>
+} as ComponentMeta<typeof Dropdown>;
 
-const Template: ComponentStory<typeof Dropdown> = (args) => (
-  <Dropdown {...args} />
-)
+const Template: ComponentStory<typeof Dropdown> = (args) => <Dropdown {...args} />;
 
-export const Normal = Template.bind({})
+export const Normal = Template.bind({});
 Normal.args = {
   options: [
     { value: null, label: '-' },
@@ -55,9 +53,9 @@ Normal.args = {
     { value: 'three', label: 'Three' },
   ],
   placeholder: 'Please select items from the list',
-}
+};
 
-export const InitialValue = Template.bind({})
+export const InitialValue = Template.bind({});
 InitialValue.args = {
   options: [
     { value: null, label: '-' },
@@ -67,12 +65,12 @@ InitialValue.args = {
   ],
   placeholder: 'Please select items from the list',
   value: 'one',
-}
+};
 
-export const Many = Template.bind({})
+export const Many = Template.bind({});
 Many.args = {
   options: Array.from(Array(20), (_v, k) => {
-    return { value: k.toString(), label: k.toString() }
+    return { value: k.toString(), label: k.toString() };
   }),
   placeholder: 'Please select items from the list',
-}
+};

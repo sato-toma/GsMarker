@@ -1,5 +1,5 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
-import TextArea from './index'
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import TextArea from './index';
 
 export default {
   title: 'Atoms/TextArea',
@@ -50,13 +50,11 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof TextArea>
+} as ComponentMeta<typeof TextArea>;
 
-const Template: ComponentStory<typeof TextArea> = (args) => (
-  <TextArea {...args} />
-)
+const Template: ComponentStory<typeof TextArea> = (args) => <TextArea {...args} />;
 
-export const Normal = Template.bind({})
+export const Normal = Template.bind({});
 
-export const Error = Template.bind({})
-Error.args = { hasError: true }
+export const Error = Template.bind({});
+Error.args = { hasError: true };

@@ -1,6 +1,6 @@
-import { ComponentMeta, ComponentStory } from '@storybook/react'
-import styled from 'styled-components'
-import Spinner from './index'
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import styled from 'styled-components';
+import Spinner from './index';
 
 export default {
   title: 'Atoms/Spinner',
@@ -30,7 +30,7 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Spinner>
+} as ComponentMeta<typeof Spinner>;
 
 const SpinnerWrapper = styled.div`
   position: fixed;
@@ -42,12 +42,12 @@ const SpinnerWrapper = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 1199;
-`
+`;
 
 const Template: ComponentStory<typeof Spinner> = (args) => (
   <SpinnerWrapper>
     <Spinner {...args} />
   </SpinnerWrapper>
-)
+);
 
-export const Normal = Template.bind({})
+export const Normal = Template.bind({});
