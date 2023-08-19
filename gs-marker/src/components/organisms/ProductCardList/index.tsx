@@ -1,4 +1,5 @@
-import Grid from 'components/layout/Grid';
+import React from 'react';
+import Grid from './../../../components/layout/Grid';
 
 interface ProductCardListProps {
   /**

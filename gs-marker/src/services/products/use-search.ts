@@ -1,5 +1,5 @@
 import useSWR from 'swr';
-import type { ApiContext, Category, Condition, Product } from 'types';
+import type { ApiContext, Category, Condition, Product } from './../../types';
 
 export type UseSearchProps = {
   /**

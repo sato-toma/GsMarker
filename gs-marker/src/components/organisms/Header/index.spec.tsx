@@ -1,16 +1,17 @@
 import { render, screen, RenderResult } from '@testing-library/react';
+import React from 'react';
 import { ThemeProvider } from 'styled-components';
+import { AuthContextProvider } from './../../../contexts/AuthContext';
+import { theme } from './../../../themes';
+import type { User, Product } from './../../../types';
 import Header from '.';
-import { AuthContextProvider } from 'contexts/AuthContext';
-import { theme } from 'themes';
-import type { User, Product } from 'types';
 
 // ShoppingCartContextのモック
 jest.mock('contexts/ShoppingCartContext');
 // eslint-disable-next-line import/order
-import { useShoppingCartContext } from 'contexts/ShoppingCartContext';
+import { useShoppingCartContext } from './../../../contexts/ShoppingCartContext';
 // オリジナルのShoppingCartContextProviderを取得
-const { ShoppingCartContextProvider } = jest.requireActual('contexts/ShoppingCartContext');
+const { ShoppingCartContextProvider } = jest.requireActual('./../../../contexts/ShoppingCartContext');
 
 // ダミーユーザー
 const authUser: User = {

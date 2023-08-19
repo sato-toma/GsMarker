@@ -1,20 +1,21 @@
 import type { GetStaticPaths, GetStaticProps, GetStaticPropsContext, InferGetStaticPropsType, NextPage } from 'next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import BreadcrumbItem from 'components/atoms/BreadcrumbItem';
-import Separator from 'components/atoms/Separator';
-import Text from 'components/atoms/Text';
-import Box from 'components/layout/Box';
-import Flex from 'components/layout/Flex';
-import Breadcrumb from 'components/molecules/Breadcrumb';
-import ProductCard from 'components/organisms/ProductCard';
-import UserProfile from 'components/organisms/UserProfile';
-import Layout from 'components/templates/Layout';
-import AddToCartButtonContainer from 'containers/AddToCartButtonContainer';
-import getAllProducts from 'services/products/get-all-products';
-import getProduct from 'services/products/get-product';
-import useProduct from 'services/products/use-product';
-import type { ApiContext, Category } from 'types';
+import React from 'react';
+import BreadcrumbItem from './../../components/atoms/BreadcrumbItem';
+import Separator from './../../components/atoms/Separator';
+import Text from './../../components/atoms/Text';
+import Box from './../../components/layout/Box';
+import Flex from './../../components/layout/Flex';
+import Breadcrumb from './../../components/molecules/Breadcrumb';
+import ProductCard from './../../components/organisms/ProductCard';
+import UserProfile from './../../components/organisms/UserProfile';
+import Layout from './../../components/templates/Layout';
+import AddToCartButtonContainer from './../../containers/AddToCartButtonContainer';
+import getAllProducts from './../../services/products/get-all-products';
+import getProduct from './../../services/products/get-product';
+import useProduct from './../../services/products/use-product';
+import type { ApiContext, Category } from './../../types';
 
 const categoryNameDict: Record<Category, string> = {
   book: '本',

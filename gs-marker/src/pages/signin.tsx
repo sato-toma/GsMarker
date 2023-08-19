@@ -1,10 +1,11 @@
 import type { NextPage } from 'next';
 import { useRouter } from 'next/router';
-import AppLogo from 'components/atoms/AppLogo';
-import Box from 'components/layout/Box';
-import Flex from 'components/layout/Flex';
-import Layout from 'components/templates/Layout';
-import SigninFormContainer from 'containers/SigninFormContainer';
+import React from 'react';
+import AppLogo from './../components/atoms/AppLogo';
+import Box from './../components/layout/Box';
+import Flex from './../components/layout/Flex';
+import Layout from './../components/templates/Layout';
+import SigninFormContainer from './../containers/SigninFormContainer';
 
 const SigninPage: NextPage = () => {
   const router = useRouter();

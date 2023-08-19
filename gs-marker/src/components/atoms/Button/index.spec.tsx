@@ -1,4 +1,5 @@
 import { render, screen, fireEvent, RenderResult } from '@testing-library/react';
+import React from 'react';
 import Button from '.';
 
 describe('Button', () => {

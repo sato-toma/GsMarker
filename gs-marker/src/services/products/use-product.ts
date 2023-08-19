@@ -1,5 +1,5 @@
 import useSWR from 'swr';
-import type { ApiContext, Product } from 'types';
+import type { ApiContext, Product } from './../../types';
 
 export type UseProductProps = {
   /**

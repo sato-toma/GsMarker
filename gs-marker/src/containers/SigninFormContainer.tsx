@@ -1,6 +1,7 @@
-import SigninForm from 'components/organisms/SigninForm';
-import { useAuthContext } from 'contexts/AuthContext';
-import { useGlobalSpinnerActionsContext } from 'contexts/GlobalSpinnerContext';
+import React from 'react';
+import SigninForm from './../components/organisms/SigninForm';
+import { useAuthContext } from './../contexts/AuthContext';
+import { useGlobalSpinnerActionsContext } from './../contexts/GlobalSpinnerContext';
 
 interface SigninFormContainerProps {
   /**

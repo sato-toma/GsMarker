@@ -1,7 +1,8 @@
 import { render, screen, act, fireEvent, RenderResult } from '@testing-library/react';
+import React from 'react';
 import { ThemeProvider } from 'styled-components';
+import { theme } from './../../../themes';
 import Dropdown from '.';
-import { theme } from 'themes';
 
 describe('Dropdown', () => {
   let renderResult: RenderResult;

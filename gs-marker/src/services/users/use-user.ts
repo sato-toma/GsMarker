@@ -1,5 +1,5 @@
 import useSWR from 'swr';
-import type { ApiContext, User } from 'types';
+import type { ApiContext, User } from './../../types';
 
 export type UseUserProps = {
   /**

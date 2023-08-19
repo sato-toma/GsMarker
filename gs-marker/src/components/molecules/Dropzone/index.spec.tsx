@@ -1,7 +1,8 @@
 import { render, screen, fireEvent, RenderResult } from '@testing-library/react';
+import React from 'react';
 import { ThemeProvider } from 'styled-components';
+import { theme } from './../../../themes';
 import Dropzone from '.';
-import { theme } from 'themes';
 
 describe('Dropzone', () => {
   let renderResult: RenderResult;

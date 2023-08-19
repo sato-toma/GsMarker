@@ -1,4 +1,4 @@
-import { Product } from 'types';
+import { Product } from './../../types';
 
 export const ADD_PRODUCT = 'ADD_PRODUCT';
 export const REMOVE_PRODUCT = 'REMOVE_PRODUCT';

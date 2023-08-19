@@ -1,53 +1,46 @@
 /* eslint-disable prettier/prettier */
-import styled from 'styled-components'
-import { Responsive } from 'types'
-import {
-  toPropValue,
-  Color,
-  FontSize,
-  LetterSpacing,
-  LineHeight,
-  Space,
-} from 'utils/styles'
+import styled from 'styled-components';
+import { Responsive } from './../../../types';
+import { toPropValue, Color, FontSize, LetterSpacing, LineHeight, Space } from './../../../utils/styles';
 
 // ボタンのバリアント
-export type ButtonVariant = 'primary' | 'secondary' | 'danger'
+export type ButtonVariant = 'primary' | 'secondary' | 'danger';
 
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-  variant?: ButtonVariant
-  fontSize?: Responsive<FontSize>
-  fontWeight?: Responsive<string>
-  letterSpacing?: Responsive<LetterSpacing>
-  lineHeight?: Responsive<LineHeight>
-  textAlign?: Responsive<string>
-  color?: Responsive<Color>
-  backgroundColor?: Responsive<Color>
-  width?: Responsive<string>
-  height?: Responsive<string>
-  minWidth?: Responsive<string>
-  minHeight?: Responsive<string>
-  display?: Responsive<string>
-  border?: Responsive<string>
-  overflow?: Responsive<string>
-  margin?: Responsive<Space>
-  marginTop?: Responsive<Space>
-  marginRight?: Responsive<Space>
-  marginBottom?: Responsive<Space>
-  marginLeft?: Responsive<Space>
-  padding?: Responsive<Space>
-  paddingTop?: Responsive<Space>
-  paddingRight?: Responsive<Space>
-  paddingBottom?: Responsive<Space>
-  paddingLeft?: Responsive<Space>
+  variant?: ButtonVariant;
+  fontSize?: Responsive<FontSize>;
+  fontWeight?: Responsive<string>;
+  letterSpacing?: Responsive<LetterSpacing>;
+  lineHeight?: Responsive<LineHeight>;
+  textAlign?: Responsive<string>;
+  color?: Responsive<Color>;
+  backgroundColor?: Responsive<Color>;
+  width?: Responsive<string>;
+  height?: Responsive<string>;
+  minWidth?: Responsive<string>;
+  minHeight?: Responsive<string>;
+  display?: Responsive<string>;
+  border?: Responsive<string>;
+  overflow?: Responsive<string>;
+  margin?: Responsive<Space>;
+  marginTop?: Responsive<Space>;
+  marginRight?: Responsive<Space>;
+  marginBottom?: Responsive<Space>;
+  marginLeft?: Responsive<Space>;
+  padding?: Responsive<Space>;
+  paddingTop?: Responsive<Space>;
+  paddingRight?: Responsive<Space>;
+  paddingBottom?: Responsive<Space>;
+  paddingLeft?: Responsive<Space>;
   pseudoClass?: {
     hover?: {
-      backgroundColor?: Responsive<Color>
-    }
+      backgroundColor?: Responsive<Color>;
+    };
     disabled?: {
-      backgroundColor?: Responsive<Color>
-    }
-  }
-}
+      backgroundColor?: Responsive<Color>;
+    };
+  };
+};
 
 const variants = {
   // プライマリ
@@ -92,7 +85,7 @@ const variants = {
       },
     },
   },
-}
+};
 
 /**
  * ボタン
@@ -102,38 +95,22 @@ const Button = styled.button<ButtonProps>`
   ${({ variant, color, backgroundColor, pseudoClass, theme }) => {
     // バリアントのスタイルの適用
     if (variant && variants[variant]) {
-      const styles = []
-      !color &&
-        styles.push(toPropValue('color', variants[variant].color, theme))
-      !backgroundColor &&
-        styles.push(
-          toPropValue(
-            'background-color',
-            variants[variant].backgroundColor,
-            theme,
-          ),
-        )
+      const styles: (string | undefined)[] = [];
+      !color && styles.push(toPropValue('color', variants[variant].color, theme));
+      !backgroundColor && styles.push(toPropValue('background-color', variants[variant].backgroundColor, theme));
       !pseudoClass &&
         styles.push(
           `&:hover {
-            ${toPropValue(
-              'background-color',
-              variants[variant].pseudoClass.hover.backgroundColor,
-              theme,
-            )}
+            ${toPropValue('background-color', variants[variant].pseudoClass.hover.backgroundColor, theme)}
           }`.replaceAll('\n', ''),
-        )
+        );
       !pseudoClass &&
         styles.push(
           `&:disabled {
-            ${toPropValue(
-              'background-color',
-              variants[variant].pseudoClass.disabled.backgroundColor,
-              theme,
-            )}
+            ${toPropValue('background-color', variants[variant].pseudoClass.disabled.backgroundColor, theme)}
           }`.replaceAll('\n', ''),
-        )
-      return styles.join('\n')
+        );
+      return styles.join('\n');
     }
   }}
   ${(props) => toPropValue('font-size', props.fontSize, props.theme)}
@@ -159,18 +136,10 @@ const Button = styled.button<ButtonProps>`
   ${(props) => toPropValue('padding-bottom', props.paddingBottom, props.theme)}
   ${(props) => toPropValue('padding-right', props.paddingRight, props.theme)}
   &:hover {
-    ${(props) =>
-      toPropValue(
-        'background-color',
-        props?.pseudoClass?.hover?.backgroundColor,
-      )}
+    ${(props) => toPropValue('background-color', props?.pseudoClass?.hover?.backgroundColor)}
   }
   &:disabled {
-    ${(props) =>
-      toPropValue(
-        'background-color',
-        props?.pseudoClass?.disabled?.backgroundColor,
-      )}
+    ${(props) => toPropValue('background-color', props?.pseudoClass?.disabled?.backgroundColor)}
   }
   cursor: pointer;
   outline: 0;
@@ -178,7 +147,7 @@ const Button = styled.button<ButtonProps>`
   opacity: ${({ disabled }) => (disabled ? '0.5' : '1')};
   border-radius: 4px;
   border: none;
-`
+`;
 
 Button.defaultProps = {
   variant: 'primary',
@@ -191,6 +160,6 @@ Button.defaultProps = {
   textAlign: 'center',
   lineHeight: 'inherit',
   fontSize: 'inherit',
-}
+};
 
-export default Button
+export default Button;

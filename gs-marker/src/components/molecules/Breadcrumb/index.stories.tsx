@@ -1,6 +1,7 @@
 import { ComponentMeta } from '@storybook/react';
+import React from 'react';
+import BreadcrumbItem from './../../../components/atoms/BreadcrumbItem';
 import Breadcrumb from './index';
-import BreadcrumbItem from 'components/atoms/BreadcrumbItem';
 
 export default { title: 'Molecules/Breadcrumb' } as ComponentMeta<typeof Breadcrumb>;
 

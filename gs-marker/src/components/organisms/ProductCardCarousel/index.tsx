@@ -1,4 +1,5 @@
-import Flex from 'components/layout/Flex';
+import React from 'react';
+import Flex from './../../../components/layout/Flex';
 
 interface ProductCardCarouselProps {
   children?: React.ReactNode;

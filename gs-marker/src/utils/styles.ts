@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/ban-types */
-import { theme } from 'themes';
-import type { ResponsiveProp, Responsive } from 'types';
+import { theme } from './../themes';
+import type { ResponsiveProp, Responsive } from './../types';
 
 // Themeの型
 export type AppTheme = typeof theme;
@@ -38,7 +38,7 @@ export function toPropValue<T>(propKey: string, prop?: Responsive<T>, theme?: Ap
   if (prop === undefined) return undefined;
 
   if (isResponsivePropType(prop)) {
-    const result = [];
+    const result: (string | undefined)[] = [];
     for (const responsiveKey in prop) {
       if (responsiveKey === 'base') {
         // デフォルトのスタイル
