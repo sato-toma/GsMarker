@@ -116,6 +116,7 @@ const Header = () => {
                   <Link href={`/users/${authUser.id}`} passHref>
                     <Anchor as="a">
                       <ShapeImage
+                        alt="Product Image"
                         shape="circle"
                         src={authUser.profileImageUrl}
                         width={24}
