@@ -61,22 +61,22 @@ const ProductPage: NextPage<ProductPageProps> = ({
         paddingLeft={{ base: 2, md: 0 }}
         paddingRight={{ base: 2, md: 0 }}
         justifyContent="center"
-        flexDirection={{ base: 'column', md: 'row' }}
+        flexDirection={{ base: "column", md: "row" }}
       >
         <Box>
           <Breadcrumb>
             <BreadcrumbItem>
-              <Link href="/">
+              <Link href="/" legacyBehavior>
                 <a>トップ</a>
               </Link>
             </BreadcrumbItem>
             <BreadcrumbItem>
-              <Link href="/search">
+              <Link href="/search" legacyBehavior>
                 <a>検索</a>
               </Link>
             </BreadcrumbItem>
             <BreadcrumbItem>
-              <Link href={`/search/${product.category}`}>
+              <Link href={`/search/${product.category}`} legacyBehavior>
                 <a>{categoryNameDict[product.category as Category]}</a>
               </Link>
             </BreadcrumbItem>
@@ -95,7 +95,7 @@ const ProductPage: NextPage<ProductPageProps> = ({
             <Text as="h2" variant="large" marginTop={0}>
               出品者
             </Text>
-            <Link href={`/users/${product.owner.id}`}>
+            <Link href={`/users/${product.owner.id}`} legacyBehavior>
               <a>
                 {/* ユーザープロファイル */}
                 <UserProfile
@@ -108,16 +108,16 @@ const ProductPage: NextPage<ProductPageProps> = ({
             </Link>
           </Box>
         </Box>
-        <Box padding={2} width={{ base: '100%', md: '700px' }}>
+        <Box padding={2} width={{ base: "100%", md: "700px" }}>
           <Flex
             justifyContent="space-between"
             flexDirection="column"
-            height={{ base: '', md: '100%' }}
+            height={{ base: "", md: "100%" }}
           >
             {/* 商品概要を表示、改行ごとにテキストコンポーネントでラップ */}
             <Box>
               {product.description
-                .split('\n')
+                .split("\n")
                 .map((text: string, i: number) => (
                   <Text key={i} as="p">
                     {text}
@@ -136,7 +136,7 @@ const ProductPage: NextPage<ProductPageProps> = ({
         </Box>
       </Flex>
     </Layout>
-  )
+  );
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {

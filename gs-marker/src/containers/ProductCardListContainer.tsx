@@ -39,10 +39,10 @@ const ProductCardListContainer = ({
       {isLoading &&
         Array.from(Array(16), (_, k) => (
           <Box key={k}>
-            <Box display={{ base: 'none', md: 'block' }}>
+            <Box display={{ base: "none", md: "block" }}>
               <RectLoader width={240} height={240} />
             </Box>
-            <Box display={{ base: 'block', md: 'none' }}>
+            <Box display={{ base: "block", md: "none" }}>
               <RectLoader width={160} height={160} />
             </Box>
           </Box>
@@ -50,7 +50,7 @@ const ProductCardListContainer = ({
       {!isLoading &&
         products.map((p) => (
           <Box key={p.id}>
-            <Link href={`/products/${p.id}`} passHref>
+            <Link href={`/products/${p.id}`} passHref legacyBehavior>
               <a>
                 {/* 商品カード */}
                 <ProductCard
@@ -65,7 +65,7 @@ const ProductCardListContainer = ({
           </Box>
         ))}
     </ProductCardList>
-  )
+  );
 }
 
 export default ProductCardListContainer

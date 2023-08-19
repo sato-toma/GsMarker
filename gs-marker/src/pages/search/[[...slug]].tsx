@@ -69,40 +69,43 @@ const SearchPage: NextPage = () => {
         <Box marginBottom={1}>
           <Breadcrumb>
             <BreadcrumbItem>
-              <Link href="/">
+              <Link href="/" legacyBehavior>
                 <a>トップ</a>
               </Link>
             </BreadcrumbItem>
             <BreadcrumbItem>
-              <Link href="/search">
+              <Link href="/search" legacyBehavior>
                 <a>検索</a>
               </Link>
             </BreadcrumbItem>
             {/* パンくずリストを選択したカテゴリから生成 */}
             {slug.slice(0, slug.length - 1).map((category, i) => (
               <BreadcrumbItem key={i}>
-                <Link href={`/search/${slug.slice(0, i + 1).join('/')}`}>
-                  <a>{categoryNameDict[category] ?? 'Unknown'}</a>
+                <Link
+                  href={`/search/${slug.slice(0, i + 1).join("/")}`}
+                  legacyBehavior
+                >
+                  <a>{categoryNameDict[category] ?? "Unknown"}</a>
                 </Link>
               </BreadcrumbItem>
             ))}
             {slug.length == 0 && <BreadcrumbItem>すべて</BreadcrumbItem>}
             {slug.length > 0 && (
               <BreadcrumbItem>
-                {categoryNameDict[slug[slug.length - 1]] ?? 'Unknown'}
+                {categoryNameDict[slug[slug.length - 1]] ?? "Unknown"}
               </BreadcrumbItem>
             )}
           </Breadcrumb>
         </Box>
         <Flex>
-          <Flex flexDirection={{ base: 'column', md: 'row' }}>
+          <Flex flexDirection={{ base: "column", md: "row" }}>
             <Box as="aside" minWidth="200px" marginBottom={{ base: 2, md: 0 }}>
               {/* 商品の状態のフィルタ */}
               <FilterGroup
                 title="商品の状態"
                 items={[
-                  { label: '新品', name: 'new' },
-                  { label: '中古', name: 'used' },
+                  { label: "新品", name: "new" },
+                  { label: "中古", name: "used" },
                 ]}
                 value={conditions}
                 onChange={handleChange}
@@ -126,14 +129,14 @@ const SearchPage: NextPage = () => {
                         </Anchor>
                       </Link>
                     </Box>
-                  ),
+                  )
                 )}
               </Box>
             </Box>
             <Box>
               <Text
                 as="h2"
-                display={{ base: 'block', md: 'none' }}
+                display={{ base: "block", md: "none" }}
                 fontWeight="bold"
                 variant="mediumLarge"
               >
@@ -152,7 +155,7 @@ const SearchPage: NextPage = () => {
         </Flex>
       </Box>
     </Layout>
-  )
+  );
 }
 
 export default SearchPage

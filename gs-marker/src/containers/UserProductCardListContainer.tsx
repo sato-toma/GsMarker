@@ -37,7 +37,7 @@ const UserProductCardListContainer = ({
     <ProductCardList numberPerRow={6} numberPerRowForMobile={2}>
       {userProducts.map((p) => (
         <Fragment key={p.id}>
-          <Link href={`/products/${p.id}`} passHref>
+          <Link href={`/products/${p.id}`} passHref legacyBehavior>
             <a>
               {/* 商品カード */}
               <ProductCard
@@ -51,7 +51,7 @@ const UserProductCardListContainer = ({
         </Fragment>
       ))}
     </ProductCardList>
-  )
+  );
 }
 
 export default UserProductCardListContainer

@@ -56,7 +56,7 @@ const CartProduct = ({
     <Flex justifyContent="space-between">
       <Flex>
         <Box width="120px" height="120px">
-          <Link href={`/products/${id}`} passHref>
+          <Link href={`/products/${id}`} passHref legacyBehavior>
             <a>
               <Image
                 quality="85"
@@ -92,7 +92,7 @@ const CartProduct = ({
             <Flex marginTop={{ base: 2, md: 0 }}>
               {/* 購入ボタン */}
               <Button
-                width={{ base: '100px', md: '200px' }}
+                width={{ base: "100px", md: "200px" }}
                 onClick={() => onBuyButtonClick && onBuyButtonClick(id)}
               >
                 購入
@@ -100,8 +100,8 @@ const CartProduct = ({
               {/* 削除ボタン (モバイル) */}
               <Button
                 marginLeft={1}
-                width={{ base: '100px', md: '200px' }}
-                display={{ base: 'block', md: 'none' }}
+                width={{ base: "100px", md: "200px" }}
+                display={{ base: "block", md: "none" }}
                 variant="danger"
                 onClick={() => onRemoveButtonClick && onRemoveButtonClick(id)}
               >
@@ -111,7 +111,7 @@ const CartProduct = ({
           </Flex>
         </Box>
       </Flex>
-      <Box display={{ base: 'none', md: 'block' }}>
+      <Box display={{ base: "none", md: "block" }}>
         {/* 削除ボタン (デスクトップ) */}
         <RemoveText
           color="danger"
@@ -121,7 +121,7 @@ const CartProduct = ({
         </RemoveText>
       </Box>
     </Flex>
-  )
+  );
 }
 
 export default CartProduct

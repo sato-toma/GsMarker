@@ -25,7 +25,7 @@ const CartPage: NextPage = () => {
         <Box width="1240px">
           <Breadcrumb>
             <BreadcrumbItem>
-              <Link href="/">
+              <Link href="/" legacyBehavior>
                 <a>トップ</a>
               </Link>
             </BreadcrumbItem>
@@ -44,7 +44,7 @@ const CartPage: NextPage = () => {
         </Box>
       </Flex>
     </Layout>
-  )
+  );
 }
 
 export default CartPage

@@ -22,7 +22,7 @@ const HomePage: NextPage<HomePageProps> = ({
       <ProductCardCarousel>
         {products.map((p: Product, i: number) => (
           <Box paddingLeft={i === 0 ? 0 : 2} key={p.id}>
-            <Link href={`/products/${p.id}`} passHref>
+            <Link href={`/products/${p.id}`} passHref legacyBehavior>
               <a>
                 <ProductCard
                   variant="small"
@@ -36,7 +36,7 @@ const HomePage: NextPage<HomePageProps> = ({
           </Box>
         ))}
       </ProductCardCarousel>
-    )
+    );
   }
 
   return (

@@ -45,7 +45,7 @@ const UserPage: NextPage<UserPageProps> = ({
           <Box marginBottom={2}>
             <Breadcrumb>
               <BreadcrumbItem>
-                <Link href="/">
+                <Link href="/" legacyBehavior>
                   <a>トップ</a>
                 </Link>
               </BreadcrumbItem>
@@ -72,7 +72,7 @@ const UserPage: NextPage<UserPageProps> = ({
         </Box>
       </Flex>
     </Layout>
-  )
+  );
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
