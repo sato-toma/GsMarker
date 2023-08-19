@@ -11,7 +11,7 @@ const colors = {
   gray: '#6b6b6b',
   black: '#000000',
   white: '#ffffff',
-  text: '#000000',
-} as const
+  text: '#000000'
+} as const;
 
-export default colors
+export default colors;

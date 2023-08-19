@@ -1,40 +1,40 @@
-import styled from 'styled-components'
-import ScaleImage from 'components/atoms/ScaleImage'
-import Text from 'components/atoms/Text'
-import Box from 'components/layout/Box'
+import styled from 'styled-components';
+import ScaleImage from 'components/atoms/ScaleImage';
+import Text from 'components/atoms/Text';
+import Box from 'components/layout/Box';
 
 interface ProductCardProps {
   /**
    * 商品タイトル
    */
-  title: string
+  title: string;
   /**
    * 商品価格
    */
-  price: number
+  price: number;
   /**
    * 商品画像URL
    */
-  imageUrl: string
+  imageUrl: string;
   /**
    * 商品のぼかし画像のデータURIスキーム
    */
-  blurDataUrl?: string
+  blurDataUrl?: string;
   /**
    * バリアント（表示スタイル）
    */
-  variant?: 'listing' | 'small' | 'detail'
+  variant?: 'listing' | 'small' | 'detail';
 }
 
 // 商品カードのコンテナ
 const ProductCardContainer = styled.div`
   position: relative;
-`
+`;
 
 // 商品カード画像のコンテナ
 const ProductCardImageContainer = styled.div`
   z-index: 99;
-`
+`;
 
 // 商品カードの情報
 const ProductCardInfo = styled.div`
@@ -42,28 +42,22 @@ const ProductCardInfo = styled.div`
   z-index: 100;
   top: 0px;
   left: 0px;
-`
+`;
 
 /**
  * 商品カード
  */
-const ProductCard = ({
-  title,
-  price,
-  imageUrl,
-  blurDataUrl,
-  variant = 'listing',
-}: ProductCardProps) => {
+const ProductCard = ({ title, price, imageUrl, blurDataUrl, variant = 'listing' }: ProductCardProps) => {
   const { size, imgSize } = (() => {
     switch (variant) {
       case 'detail':
-        return { size: { base: '320px', md: '540px' }, imgSize: 540 }
+        return { size: { base: '320px', md: '540px' }, imgSize: 540 };
       case 'listing':
-        return { size: { base: '160px', md: '240px' }, imgSize: 240 }
+        return { size: { base: '160px', md: '240px' }, imgSize: 240 };
       default:
-        return { size: { base: '160px' }, imgSize: 160 }
+        return { size: { base: '160px' }, imgSize: 160 };
     }
-  })()
+  })();
 
   return (
     <ProductCardContainer>
@@ -135,7 +129,7 @@ const ProductCard = ({
         </Box>
       )}
     </ProductCardContainer>
-  )
-}
+  );
+};
 
-export default ProductCard
+export default ProductCard;

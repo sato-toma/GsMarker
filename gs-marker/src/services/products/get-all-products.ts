@@ -1,36 +1,36 @@
-import type { ApiContext, Category, Condition, Product } from 'types'
-import { fetcher } from 'utils'
+import type { ApiContext, Category, Condition, Product } from 'types';
+import { fetcher } from 'utils';
 
 export type GetAllProductsParams = {
   /**
    * 商品カテゴリ
    */
-  category?: Category
+  category?: Category;
   /**
    * 商品状態
    */
-  conditions?: Condition[]
+  conditions?: Condition[];
   /**
    * 所有するユーザーID
    */
-  userId?: number
+  userId?: number;
   /**
    * ソートするキー
    */
-  sort?: keyof Omit<Product, 'owner'>
+  sort?: keyof Omit<Product, 'owner'>;
   /**
    * 昇順or降順
    */
-  order?: 'asc' | 'desc'
+  order?: 'asc' | 'desc';
   /**
    * 取得数
    */
-  limit?: number
+  limit?: number;
   /**
    * ページ数
    */
-  page?: number
-}
+  page?: number;
+};
 
 /**
  * プロダクトAPI（一覧取得）
@@ -41,35 +41,26 @@ export type GetAllProductsParams = {
 // eslint-disable-next-line complexity
 const getAllProducts = async (
   context: ApiContext,
-  {
-    category,
-    conditions,
-    userId,
-    page,
-    limit,
-    sort = 'id',
-    order = 'desc',
-  }: GetAllProductsParams = {},
+  { category, conditions, userId, page, limit, sort = 'id', order = 'desc' }: GetAllProductsParams = {}
 ): Promise<Product[]> => {
-  const path = `${context.apiRootUrl.replace(/\/$/g, '')}/products`
-  const params = new URLSearchParams()
+  const path = `${context.apiRootUrl.replace(/\/$/g, '')}/products`;
+  const params = new URLSearchParams();
 
-  category && params.append('category', category)
-  conditions &&
-    conditions.forEach((condition) => params.append('condition', condition))
-  userId && params.append('owner.id', `${userId}`)
-  page && params.append('_page', `${page}`)
-  limit && params.append('_limit', `${limit}`)
-  sort && params.append('_sort', sort)
-  order && params.append('_order', order)
-  const query = params.toString()
+  category && params.append('category', category);
+  conditions && conditions.forEach((condition) => params.append('condition', condition));
+  userId && params.append('owner.id', `${userId}`);
+  page && params.append('_page', `${page}`);
+  limit && params.append('_limit', `${limit}`);
+  sort && params.append('_sort', sort);
+  order && params.append('_order', order);
+  const query = params.toString();
 
   return await fetcher(query.length > 0 ? `${path}?${query}` : path, {
     headers: {
       Accept: 'application/json',
-      'Content-Type': 'application/json',
-    },
-  })
-}
+      'Content-Type': 'application/json'
+    }
+  });
+};
 
-export default getAllProducts
+export default getAllProducts;

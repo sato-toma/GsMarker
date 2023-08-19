@@ -1,10 +1,10 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import styled from 'styled-components'
-import Button from 'components/atoms/Button'
-import Text from 'components/atoms/Text'
-import Box from 'components/layout/Box'
-import Flex from 'components/layout/Flex'
+import Image from 'next/image';
+import Link from 'next/link';
+import styled from 'styled-components';
+import Button from 'components/atoms/Button';
+import Text from 'components/atoms/Text';
+import Box from 'components/layout/Box';
+import Flex from 'components/layout/Flex';
 
 // 削除ボタンのテキスト
 const RemoveText = styled(Text)`
@@ -12,77 +12,53 @@ const RemoveText = styled(Text)`
   &:hover {
     text-decoration: underline;
   }
-`
+`;
 
 interface CartProductProps {
   /**
    * 商品ID
    */
-  id: number
+  id: number;
   /**
    * 商品画像URL
    */
-  imageUrl: string
+  imageUrl: string;
   /**
    * 商品タイトル
    */
-  title: string
+  title: string;
   /**
    * 商品価格
    */
-  price: number
+  price: number;
   /**
    * 購入ボタンを押した時のイベントハンドラ
    */
-  onBuyButtonClick?: (id: number) => void
+  onBuyButtonClick?: (id: number) => void;
   /**
    * 削除ボタンを押した時のイベントハンドラ
    */
-  onRemoveButtonClick?: (id: number) => void
+  onRemoveButtonClick?: (id: number) => void;
 }
 
 /**
  * カート商品
  */
-const CartProduct = ({
-  id,
-  imageUrl,
-  title,
-  price,
-  onBuyButtonClick,
-  onRemoveButtonClick,
-}: CartProductProps) => {
+const CartProduct = ({ id, imageUrl, title, price, onBuyButtonClick, onRemoveButtonClick }: CartProductProps) => {
   return (
     <Flex justifyContent="space-between">
       <Flex>
         <Box width="120px" height="120px">
           <Link href={`/products/${id}`} passHref>
             <a>
-              <Image
-                quality="85"
-                src={imageUrl}
-                alt={title}
-                height={120}
-                width={120}
-                objectFit="cover"
-              />
+              <Image quality="85" src={imageUrl} alt={title} height={120} width={120} objectFit="cover" />
             </a>
           </Link>
         </Box>
         <Box padding={1}>
-          <Flex
-            height="100%"
-            flexDirection="column"
-            justifyContent="space-between"
-          >
+          <Flex height="100%" flexDirection="column" justifyContent="space-between">
             <Box>
-              <Text
-                fontWeight="bold"
-                variant="mediumLarge"
-                marginTop={0}
-                marginBottom={1}
-                as="p"
-              >
+              <Text fontWeight="bold" variant="mediumLarge" marginTop={0} marginBottom={1} as="p">
                 {title}
               </Text>
               <Text margin={0} as="p">
@@ -91,10 +67,7 @@ const CartProduct = ({
             </Box>
             <Flex marginTop={{ base: 2, md: 0 }}>
               {/* 購入ボタン */}
-              <Button
-                width={{ base: '100px', md: '200px' }}
-                onClick={() => onBuyButtonClick && onBuyButtonClick(id)}
-              >
+              <Button width={{ base: '100px', md: '200px' }} onClick={() => onBuyButtonClick && onBuyButtonClick(id)}>
                 購入
               </Button>
               {/* 削除ボタン (モバイル) */}
@@ -113,15 +86,12 @@ const CartProduct = ({
       </Flex>
       <Box display={{ base: 'none', md: 'block' }}>
         {/* 削除ボタン (デスクトップ) */}
-        <RemoveText
-          color="danger"
-          onClick={() => onRemoveButtonClick && onRemoveButtonClick(id)}
-        >
+        <RemoveText color="danger" onClick={() => onRemoveButtonClick && onRemoveButtonClick(id)}>
           カートから削除
         </RemoveText>
       </Box>
     </Flex>
-  )
-}
+  );
+};
 
-export default CartProduct
+export default CartProduct;

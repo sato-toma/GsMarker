@@ -1,67 +1,65 @@
-import type { NextPage } from 'next'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-import styled from 'styled-components'
-import BreadcrumbItem from 'components/atoms/BreadcrumbItem'
-import Text from 'components/atoms/Text'
-import Box from 'components/layout/Box'
-import Flex from 'components/layout/Flex'
-import Breadcrumb from 'components/molecules/Breadcrumb'
-import FilterGroup from 'components/molecules/FilterGroup'
-import Layout from 'components/templates/Layout'
-import ProductCardListContainer from 'containers/ProductCardListContainer'
-import type { Category, Condition } from 'types'
+import type { NextPage } from 'next';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import styled from 'styled-components';
+import BreadcrumbItem from 'components/atoms/BreadcrumbItem';
+import Text from 'components/atoms/Text';
+import Box from 'components/layout/Box';
+import Flex from 'components/layout/Flex';
+import Breadcrumb from 'components/molecules/Breadcrumb';
+import FilterGroup from 'components/molecules/FilterGroup';
+import Layout from 'components/templates/Layout';
+import ProductCardListContainer from 'containers/ProductCardListContainer';
+import type { Category, Condition } from 'types';
 
 const Anchor = styled(Text)`
   cursor: pointer;
   &:hover {
     text-decoration: underline;
   }
-`
+`;
 
 const categoryNameDict: Record<Category, string> = {
   book: '本',
   shoes: 'シューズ',
-  clothes: 'トップス',
-}
+  clothes: 'トップス'
+};
 
 const SearchPage: NextPage = () => {
-  const router = useRouter()
+  const router = useRouter();
   // 商品のカテゴリーをクエリから取得
-  const slug: Category[] = Array.isArray(router.query.slug)
-    ? (router.query.slug as Category[])
-    : []
+  const slug: Category[] = Array.isArray(router.query.slug) ? (router.query.slug as Category[]) : [];
   // 商品の状態をクエリから取得
   const conditions = (() => {
     if (Array.isArray(router.query.condition)) {
-      return router.query.condition as Condition[]
+      return router.query.condition as Condition[];
     } else if (router.query.condition) {
-      return [router.query.condition as Condition]
+      return [router.query.condition as Condition];
     } else {
-      return []
+      return [];
     }
-  })()
+  })();
 
   const handleChange = (selected: string[]) => {
     router.push({
       pathname: router.pathname,
       query: {
         slug,
-        condition: selected,
-      },
-    })
-  }
+        condition: selected
+      }
+    });
+  };
 
   return (
     <Layout>
       <Box
         paddingLeft={{
           base: 2,
-          md: 3,
+          md: 3
         }}
         paddingRight={{
           base: 2,
-          md: 3,
+          md: 3
         }}
         paddingTop={2}
         paddingBottom={2}
@@ -87,11 +85,7 @@ const SearchPage: NextPage = () => {
               </BreadcrumbItem>
             ))}
             {slug.length == 0 && <BreadcrumbItem>すべて</BreadcrumbItem>}
-            {slug.length > 0 && (
-              <BreadcrumbItem>
-                {categoryNameDict[slug[slug.length - 1]] ?? 'Unknown'}
-              </BreadcrumbItem>
-            )}
+            {slug.length > 0 && <BreadcrumbItem>{categoryNameDict[slug[slug.length - 1]] ?? 'Unknown'}</BreadcrumbItem>}
           </Breadcrumb>
         </Box>
         <Flex>
@@ -102,7 +96,7 @@ const SearchPage: NextPage = () => {
                 title="商品の状態"
                 items={[
                   { label: '新品', name: 'new' },
-                  { label: '中古', name: 'used' },
+                  { label: '中古', name: 'used' }
                 ]}
                 value={conditions}
                 onChange={handleChange}
@@ -117,26 +111,17 @@ const SearchPage: NextPage = () => {
                   </Link>
                 </Box>
                 {/* カテゴリのリンク */}
-                {Object.keys(categoryNameDict).map(
-                  (category: string, i: number) => (
-                    <Box key={i} marginTop={1}>
-                      <Link href={`/search/${category}`} passHref>
-                        <Anchor as="a">
-                          {categoryNameDict[category as Category]}
-                        </Anchor>
-                      </Link>
-                    </Box>
-                  ),
-                )}
+                {Object.keys(categoryNameDict).map((category: string, i: number) => (
+                  <Box key={i} marginTop={1}>
+                    <Link href={`/search/${category}`} passHref>
+                      <Anchor as="a">{categoryNameDict[category as Category]}</Anchor>
+                    </Link>
+                  </Box>
+                ))}
               </Box>
             </Box>
             <Box>
-              <Text
-                as="h2"
-                display={{ base: 'block', md: 'none' }}
-                fontWeight="bold"
-                variant="mediumLarge"
-              >
+              <Text as="h2" display={{ base: 'block', md: 'none' }} fontWeight="bold" variant="mediumLarge">
                 商品一覧
               </Text>
               {/*
@@ -152,7 +137,7 @@ const SearchPage: NextPage = () => {
         </Flex>
       </Box>
     </Layout>
-  )
-}
+  );
+};
 
-export default SearchPage
+export default SearchPage;

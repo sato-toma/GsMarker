@@ -1,5 +1,5 @@
-import * as React from 'react'
-import styled, { css } from 'styled-components'
+import * as React from 'react';
+import styled, { css } from 'styled-components';
 
 const StyledSpinner = styled.svg<{ size: number; isAutoCentering: boolean }>`
   animation: rotate 2s linear infinite;
@@ -38,26 +38,22 @@ const StyledSpinner = styled.svg<{ size: number; isAutoCentering: boolean }>`
       stroke-dashoffset: -124;
     }
   }
-`
+`;
 
 type SpinnerProps = {
-  size?: number
-  strokeWidth?: number
-  isAutoCentering?: boolean
-}
+  size?: number;
+  strokeWidth?: number;
+  isAutoCentering?: boolean;
+};
 
 /**
  * スピナー
  */
 const Spinner = (props: SpinnerProps) => {
-  const { size = 50, strokeWidth = 4, isAutoCentering = false } = props
+  const { size = 50, strokeWidth = 4, isAutoCentering = false } = props;
 
   return (
-    <StyledSpinner
-      size={size}
-      isAutoCentering={isAutoCentering}
-      viewBox={`0 0 ${size} ${size}`}
-    >
+    <StyledSpinner size={size} isAutoCentering={isAutoCentering} viewBox={`0 0 ${size} ${size}`}>
       <circle
         className="path"
         cx={size / 2}
@@ -67,7 +63,7 @@ const Spinner = (props: SpinnerProps) => {
         strokeWidth={strokeWidth}
       />
     </StyledSpinner>
-  )
-}
+  );
+};
 
-export default Spinner
+export default Spinner;

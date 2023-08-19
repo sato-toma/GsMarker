@@ -1,47 +1,47 @@
-import useSWR from 'swr'
-import type { ApiContext, Category, Condition, Product } from 'types'
+import useSWR from 'swr';
+import type { ApiContext, Category, Condition, Product } from 'types';
 
 export type UseSearchProps = {
   /**
    * 商品カテゴリ
    */
-  category?: Category
+  category?: Category;
   /**
    * 商品状態
    */
-  conditions?: Condition[]
+  conditions?: Condition[];
   /**
    * 所有するユーザーID
    */
-  userId?: number
+  userId?: number;
   /**
    * ソートするキー
    */
-  sort?: keyof Omit<Product, 'owner'>
+  sort?: keyof Omit<Product, 'owner'>;
   /**
    * 昇順or降順
    */
-  order?: 'asc' | 'desc'
+  order?: 'asc' | 'desc';
   /**
    * 初期状態
    */
-  initial?: Product[]
-}
+  initial?: Product[];
+};
 
 export type UseSearch = {
   /**
    * 検索にヒットした商品リスト
    */
-  products: Product[]
+  products: Product[];
   /**
    * ロードフラグ
    */
-  isLoading: boolean
+  isLoading: boolean;
   /**
    * エラーフラグ
    */
-  isError: boolean
-}
+  isError: boolean;
+};
 
 /**
  * プロダクトAPI（一覧取得）のカスタムフック
@@ -51,34 +51,24 @@ export type UseSearch = {
  */
 const useSearch = (
   context: ApiContext,
-  {
-    category,
-    userId,
-    conditions,
-    initial,
-    sort = 'id',
-    order = 'desc',
-  }: UseSearchProps = {},
+  { category, userId, conditions, initial, sort = 'id', order = 'desc' }: UseSearchProps = {}
 ): UseSearch => {
-  const path = `${context.apiRootUrl.replace(/\/$/g, '')}/products`
-  const params = new URLSearchParams()
+  const path = `${context.apiRootUrl.replace(/\/$/g, '')}/products`;
+  const params = new URLSearchParams();
 
-  category && params.append('category', category)
-  userId && params.append('owner.id', `${userId}`)
-  conditions &&
-    conditions.forEach((condition) => params.append('condition', condition))
-  sort && params.append('_sort', sort)
-  order && params.append('_order', order)
-  const query = params.toString()
-  const { data, error } = useSWR<Product[]>(
-    query.length > 0 ? `${path}?${query}` : path,
-  )
+  category && params.append('category', category);
+  userId && params.append('owner.id', `${userId}`);
+  conditions && conditions.forEach((condition) => params.append('condition', condition));
+  sort && params.append('_sort', sort);
+  order && params.append('_order', order);
+  const query = params.toString();
+  const { data, error } = useSWR<Product[]>(query.length > 0 ? `${path}?${query}` : path);
 
   return {
     products: data ?? initial ?? [],
     isLoading: !error && !data,
-    isError: !!error,
-  }
-}
+    isError: !!error
+  };
+};
 
-export default useSearch
+export default useSearch;

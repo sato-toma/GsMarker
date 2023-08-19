@@ -1,14 +1,14 @@
-import Grid from 'components/layout/Grid'
+import Grid from 'components/layout/Grid';
 
 interface ProductCardListProps {
   /**
    * 1行に表示する商品数
    */
-  numberPerRow?: number
+  numberPerRow?: number;
   /**
    * モバイルで1行に表示する商品数
    */
-  numberPerRowForMobile?: number
+  numberPerRowForMobile?: number;
 }
 
 /**
@@ -17,19 +17,19 @@ interface ProductCardListProps {
 const ProductCardList = ({
   numberPerRow = 4,
   numberPerRowForMobile = 2,
-  children,
+  children
 }: React.PropsWithChildren<ProductCardListProps>) => {
   return (
     <Grid
       gridGap="16px"
       gridTemplateColumns={{
         base: `repeat(${numberPerRowForMobile}, 1fr)`,
-        md: `repeat(${numberPerRow}, 1fr)`,
+        md: `repeat(${numberPerRow}, 1fr)`
       }}
     >
       {children}
     </Grid>
-  )
-}
+  );
+};
 
-export default ProductCardList
+export default ProductCardList;

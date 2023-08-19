@@ -1,29 +1,29 @@
-import ShapeImage from 'components/atoms/ShapeImage'
-import Text from 'components/atoms/Text'
-import Box from 'components/layout/Box'
-import Flex from 'components/layout/Flex'
+import ShapeImage from 'components/atoms/ShapeImage';
+import Text from 'components/atoms/Text';
+import Box from 'components/layout/Box';
+import Flex from 'components/layout/Flex';
 
 interface UserProfileProps {
   /**
    * バリアント（表示スタイル）
    */
-  variant?: 'normal' | 'small'
+  variant?: 'normal' | 'small';
   /**
    * ユーザー名
    */
-  username: string
+  username: string;
   /**
    * ユーザー画像URL
    */
-  profileImageUrl: string
+  profileImageUrl: string;
   /**
    * ユーザーが所有する商品数
    */
-  numberOfProducts: number
+  numberOfProducts: number;
   /**
    * ユーザーの説明
    */
-  description?: string
+  description?: string;
 }
 
 /**
@@ -34,9 +34,9 @@ const UserProfile = ({
   username,
   profileImageUrl,
   numberOfProducts,
-  description,
+  description
 }: UserProfileProps) => {
-  const profileImageSize = variant === 'small' ? '100px' : '120px'
+  const profileImageSize = variant === 'small' ? '100px' : '120px';
 
   return (
     <Flex>
@@ -52,20 +52,10 @@ const UserProfile = ({
         />
       </Box>
       <Box padding={1}>
-        <Flex
-          height="100%"
-          flexDirection="column"
-          justifyContent="space-between"
-        >
+        <Flex height="100%" flexDirection="column" justifyContent="space-between">
           <Box>
             {/* ユーザー名 */}
-            <Text
-              as="p"
-              fontWeight="bold"
-              variant="mediumLarge"
-              marginTop={0}
-              marginBottom={1}
-            >
+            <Text as="p" fontWeight="bold" variant="mediumLarge" marginTop={0} marginBottom={1}>
               {username}
             </Text>
             {/* 商品出品数 */}
@@ -82,7 +72,7 @@ const UserProfile = ({
         </Flex>
       </Box>
     </Flex>
-  )
-}
+  );
+};
 
-export default UserProfile
+export default UserProfile;
