@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { CloseIcon } from './../../../components/atoms/IconButton';
+import { CloseIcon } from '../../atoms/MyIconButton';
 import Box from './../../../components/layout/Box';
 import Flex from './../../../components/layout/Flex';
 

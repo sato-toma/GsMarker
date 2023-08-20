@@ -1,6 +1,6 @@
 import { ComponentMeta } from '@storybook/react';
 import React from 'react';
-import Button from './../../../components/atoms/Button';
+import Button from '../../atoms/MyButton';
 import GlobalSpinnerContextProvider, { useGlobalSpinnerActionsContext } from './../../../contexts/GlobalSpinnerContext';
 import GlobalSpinner from './index';
 

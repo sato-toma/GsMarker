@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react';
 import styled from 'styled-components';
-import BreadcrumbItem from './../../components/atoms/BreadcrumbItem';
+import BreadcrumbItem from './../../components/atoms/MyBreadcrumbItem';
 import Text from './../../components/atoms/Text';
 import Box from './../../components/layout/Box';
 import Flex from './../../components/layout/Flex';
@@ -69,19 +69,19 @@ const SearchPage: NextPage = () => {
           <Breadcrumb>
             <BreadcrumbItem>
               <Link href="/" legacyBehavior>
-                <a>トップ</a>
+                トップ
               </Link>
             </BreadcrumbItem>
             <BreadcrumbItem>
               <Link href="/search" legacyBehavior>
-                <a>検索</a>
+                検索
               </Link>
             </BreadcrumbItem>
             {/* パンくずリストを選択したカテゴリから生成 */}
             {slug.slice(0, slug.length - 1).map((category, i) => (
               <BreadcrumbItem key={i}>
                 <Link href={`/search/${slug.slice(0, i + 1).join('/')}`} legacyBehavior>
-                  <a>{categoryNameDict[category] ?? 'Unknown'}</a>
+                  {categoryNameDict[category] ?? 'Unknown'}
                 </Link>
               </BreadcrumbItem>
             ))}
@@ -107,15 +107,17 @@ const SearchPage: NextPage = () => {
                   カテゴリ
                 </Text>
                 <Box>
-                  <Link href="/search/" passHref>
-                    <Anchor as="a">すべて</Anchor>
+                  <Link href="/search/">
+                    <Anchor>すべて</Anchor>
+                    すべて
                   </Link>
                 </Box>
                 {/* カテゴリのリンク */}
                 {Object.keys(categoryNameDict).map((category: string, i: number) => (
                   <Box key={i} marginTop={1}>
-                    <Link href={`/search/${category}`} passHref>
-                      <Anchor as="a">{categoryNameDict[category as Category]}</Anchor>
+                    <Link href={`/search/${category}`}>
+                      <Anchor>{categoryNameDict[category as Category]}</Anchor>
+                      {categoryNameDict[category as Category]}
                     </Link>
                   </Box>
                 ))}

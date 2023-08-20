@@ -13,7 +13,7 @@ import {
 import SvgIcon from '@mui/material/SvgIcon';
 import React from 'react';
 import styled from 'styled-components';
-import { theme } from './../../../themes';
+import { theme } from '../../../themes';
 
 // list out color types
 export type ThemeColors = keyof typeof theme.colors;

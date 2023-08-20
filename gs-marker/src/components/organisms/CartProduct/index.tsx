@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import styled from 'styled-components';
-import Button from './../../../components/atoms/Button';
+import Button from '../../atoms/MyButton';
 import Text from './../../../components/atoms/Text';
 import Box from './../../../components/layout/Box';
 import Flex from './../../../components/layout/Flex';
@@ -51,9 +51,7 @@ const CartProduct = ({ id, imageUrl, title, price, onBuyButtonClick, onRemoveBut
       <Flex>
         <Box width="120px" height="120px">
           <Link href={`/products/${id}`} passHref legacyBehavior>
-            <a>
-              <Image quality="85" src={imageUrl} alt={title} height={120} width={120} objectFit="cover" />
-            </a>
+            <Image quality="85" src={imageUrl} alt={title} height={120} width={120} style={{ objectFit: 'cover' }} />
           </Link>
         </Box>
         <Box padding={1}>

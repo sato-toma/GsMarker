@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 import styled from 'styled-components';
-import { GitHubIcon } from './../../../components/atoms/IconButton';
+import { GitHubIcon } from '../../atoms/MyIconButton';
 import Text from './../../../components/atoms/Text';
 import Box from './../../../components/layout/Box';
 import Flex from './../../../components/layout/Flex';
@@ -23,18 +23,18 @@ const Footer = () => {
         <Box minWidth={{ base: '100%', md: '120px' }} paddingRight={{ base: 0, md: 1 }}>
           <nav>
             <Box marginBottom={2}>
-              <Link href="/" passHref>
-                <Anchor as="a">トップ</Anchor>
+              <Link href="/">
+                <Anchor>トップ</Anchor>
               </Link>
             </Box>
             <Box marginBottom={2}>
-              <Link href="/" passHref>
-                <Anchor as="a">採用</Anchor>
+              <Link href="/">
+                <Anchor>採用</Anchor>
               </Link>
             </Box>
             <Box marginBottom={2}>
-              <Link href="/" passHref>
-                <Anchor as="a">お知らせ</Anchor>
+              <Link href="/">
+                <Anchor>お知らせ</Anchor>
               </Link>
             </Box>
           </nav>
@@ -42,18 +42,18 @@ const Footer = () => {
         <Box minWidth={{ base: '100%', md: '120px' }} paddingRight={{ base: 0, md: 1 }}>
           <nav>
             <Box marginBottom={2}>
-              <Link href="/" passHref>
-                <Anchor as="a">利用規約</Anchor>
+              <Link href="/">
+                <Anchor>利用規約</Anchor>
               </Link>
             </Box>
             <Box marginBottom={2}>
-              <Link href="/" passHref>
-                <Anchor as="a">プライバシーポリシー</Anchor>
+              <Link href="/">
+                <Anchor>プライバシーポリシー</Anchor>
               </Link>
             </Box>
             <Box marginBottom={2}>
-              <Link href="/" passHref>
-                <Anchor as="a">配送と返品</Anchor>
+              <Link href="/">
+                <Anchor>配送と返品</Anchor>
               </Link>
             </Box>
           </nav>

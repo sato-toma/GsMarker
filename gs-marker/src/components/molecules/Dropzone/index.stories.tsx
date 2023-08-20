@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React, { useState, useEffect } from 'react';
-import Button from './../../../components/atoms/Button';
+import Button from '../../atoms/MyButton';
 import Box from './../../../components/layout/Box';
 import Dropzone from './index';
 

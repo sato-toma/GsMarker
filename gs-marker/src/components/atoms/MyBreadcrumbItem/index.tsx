@@ -3,7 +3,7 @@ import styled from 'styled-components';
 /**
  * パンくずリスト要素
  */
-const BreadcrumbItem = styled.li`
+const MyBreadcrumbItem = styled.li`
   list-style: none;
   display: inline;
 
@@ -23,4 +23,4 @@ const BreadcrumbItem = styled.li`
   }
 `;
 
-export default BreadcrumbItem;
+export default MyBreadcrumbItem;

@@ -1,11 +1,6 @@
 import Image, { ImageProps } from 'next/image';
 import React from 'react';
 import styled from 'styled-components';
-import { Responsive } from './../../../types';
-import { toPropValue } from './../../../utils/styles';
-
-type ScaleImageProps = Omit<ImageProps, 'quality'> & {
-  containerWidth?: Responsive<string>;
   containerHeight?: Responsive<string>;
 };
 
@@ -29,19 +24,14 @@ const ScaleEffectImage = styled(Image)`
 /**
  * スケールイメージ
  */
-const ScaleImage = ({ containerWidth, containerHeight, ...props }: ScaleImageProps) => (
-  <ScaleEffectImageContainer
-    width={containerWidth ?? `${props.width}` ?? '320px'}
-    height={containerHeight ?? `${props.height}` ?? '320px'}
-  >
-    <ScaleEffectImage
-      quality="85"
-      alt={props.alt ?? 'Product Image'}
-      height={props.height ?? 320}
-      width={props.width ?? 320}
-      {...props}
-    />
-  </ScaleEffectImageContainer>
+const ScaleImage = ({ ...props }: Omit<ImageProps, 'quality'>) => (
+  <ScaleEffectImage
+    quality="85"
+    // alt={props.alt ?? 'Product Image'}
+    height={props.height ?? 320}
+    width={props.width ?? 320}
+    {...props}
+  />
 );
 
 export default ScaleImage;

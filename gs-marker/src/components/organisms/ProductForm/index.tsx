@@ -1,6 +1,6 @@
 import React from 'react';
 import { Controller, useForm } from 'react-hook-form';
-import Button from './../../../components/atoms/Button';
+import Button from '../../atoms/MyButton';
 import Input from './../../../components/atoms/Input';
 import Text from './../../../components/atoms/Text';
 import TextArea from './../../../components/atoms/TextArea';

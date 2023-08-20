@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import Button from './index';
+import MyButton from './index';
 
 export default {
   title: 'Atoms/Button',
@@ -52,9 +52,9 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Button>;
+} as ComponentMeta<typeof MyButton>;
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+const Template: ComponentStory<typeof MyButton> = (args) => <MyButton {...args} />;
 
 // Primaryボタン
 export const Primary = Template.bind({});

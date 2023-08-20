@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
-import { SearchIcon, CloudUploadIcon, PersonOutlineIcon } from './';
+import { SearchIcon, CloudUploadIcon, PersonOutlineIcon } from '.';
 
 export default {
   title: 'Atoms/IconButton',

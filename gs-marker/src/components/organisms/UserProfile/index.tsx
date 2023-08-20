@@ -43,14 +43,7 @@ const UserProfile = ({
     <Flex>
       <Box minWidth={profileImageSize}>
         {/* ユーザー画像 */}
-        <ShapeImage
-          shape="circle"
-          quality="85"
-          src={profileImageUrl}
-          alt={username}
-          height={profileImageSize}
-          width={profileImageSize}
-        />
+        <ShapeImage shape="circle" quality="85" src={profileImageUrl} alt={username} />
       </Box>
       <Box padding={1}>
         <Flex height="100%" flexDirection="column" justifyContent="space-between">

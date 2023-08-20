@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
-import { PersonIcon, SearchIcon, ShoppingCartIcon } from './../../../components/atoms/IconButton';
+import { PersonIcon, SearchIcon, ShoppingCartIcon } from '../../atoms/MyIconButton';
 import BadgeIconButton from './index';
 
 export default {

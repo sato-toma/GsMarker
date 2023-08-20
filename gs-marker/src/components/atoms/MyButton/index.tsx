@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 import styled from 'styled-components';
-import { Responsive } from './../../../types';
-import { toPropValue, Color, FontSize, LetterSpacing, LineHeight, Space } from './../../../utils/styles';
+import { Responsive } from '../../../types';
+import { toPropValue, Color, FontSize, LetterSpacing, LineHeight, Space } from '../../../utils/styles';
 
 // ボタンのバリアント
 export type ButtonVariant = 'primary' | 'secondary' | 'danger';
@@ -91,7 +91,7 @@ const variants = {
  * ボタン
  * バリアント、色、タイポグラフィ、レイアウト、スペース関連のPropsを追加
  */
-const Button = styled.button<ButtonProps>`
+const MyButton = styled.button<ButtonProps>`
   ${({ variant, color, backgroundColor, pseudoClass, theme }) => {
     // バリアントのスタイルの適用
     if (variant && variants[variant]) {
@@ -149,7 +149,7 @@ const Button = styled.button<ButtonProps>`
   border: none;
 `;
 
-Button.defaultProps = {
+MyButton.defaultProps = {
   variant: 'primary',
   paddingLeft: 2,
   paddingRight: 2,
@@ -162,4 +162,4 @@ Button.defaultProps = {
   fontSize: 'inherit',
 };
 
-export default Button;
+export default MyButton;

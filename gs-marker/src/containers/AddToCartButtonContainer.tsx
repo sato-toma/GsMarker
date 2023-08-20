@@ -1,5 +1,5 @@
 import React from 'react';
-import Button from './../components/atoms/Button';
+import Button from '../components/atoms/MyButton';
 import { useShoppingCartContext } from './../contexts/ShoppingCartContext';
 import type { Product } from './../types';
 

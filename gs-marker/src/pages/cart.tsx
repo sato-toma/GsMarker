@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
 import Link from 'next/link';
 import React from 'react';
-import BreadcrumbItem from './../components/atoms/BreadcrumbItem';
+import MyBreadcrumbItem from './../components/atoms/MyBreadcrumbItem';
 import Text from './../components/atoms/Text';
 import Box from './../components/layout/Box';
 import Flex from './../components/layout/Flex';
@@ -25,12 +25,12 @@ const CartPage: NextPage = () => {
       >
         <Box width="1240px">
           <Breadcrumb>
-            <BreadcrumbItem>
+            <MyBreadcrumbItem>
               <Link href="/" legacyBehavior>
-                <a>トップ</a>
+                トップ
               </Link>
-            </BreadcrumbItem>
-            <BreadcrumbItem>カート</BreadcrumbItem>
+            </MyBreadcrumbItem>
+            <MyBreadcrumbItem>カート</MyBreadcrumbItem>
           </Breadcrumb>
           <Box>
             <Text display="block" variant="large" as="h1">

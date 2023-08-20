@@ -20,15 +20,13 @@ const HomePage: NextPage<HomePageProps> = ({ bookProducts, clothesProducts, shoe
         {products.map((p: Product, i: number) => (
           <Box paddingLeft={i === 0 ? 0 : 2} key={p.id}>
             <Link href={`/products/${p.id}`} passHref legacyBehavior>
-              <a>
-                <ProductCard
-                  variant="small"
-                  title={p.title}
-                  price={p.price}
-                  imageUrl={p.imageUrl}
-                  blurDataUrl={p.blurDataUrl}
-                />
-              </a>
+              <ProductCard
+                variant="small"
+                title={p.title}
+                price={p.price}
+                imageUrl={p.imageUrl}
+                blurDataUrl={p.blurDataUrl}
+              />
             </Link>
           </Box>
         ))}

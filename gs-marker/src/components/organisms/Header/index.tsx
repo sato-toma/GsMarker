@@ -1,9 +1,9 @@
 import Link from 'next/link';
 import React from 'react';
 import styled from 'styled-components';
+import MyButton from '../../atoms/MyButton';
+import { SearchIcon, PersonIcon, ShoppingCartIcon } from '../../atoms/MyIconButton';
 import AppLogo from './../../../components/atoms/AppLogo';
-import Button from './../../../components/atoms/Button';
-import { SearchIcon, PersonIcon, ShoppingCartIcon } from './../../../components/atoms/IconButton';
 import ShapeImage from './../../../components/atoms/ShapeImage';
 import Spinner from './../../../components/atoms/Spinner';
 import Text from './../../../components/atoms/Text';
@@ -52,37 +52,37 @@ const Header = () => {
       <Flex paddingLeft={3} paddingRight={3} justifyContent="space-between">
         <Nav as="nav" height="56px" alignItems="center">
           <NavLink>
-            <Link href="/" passHref>
-              <Anchor as="a">
+            <Link href="/">
+              <Anchor>
                 <AppLogo />
               </Anchor>
             </Link>
           </NavLink>
           <NavLink>
             <Box display={{ base: 'none', md: 'block' }}>
-              <Link href="/search" passHref>
-                <Anchor as="a">すべて</Anchor>
+              <Link href="/search">
+                <Anchor>すべて</Anchor>
               </Link>
             </Box>
           </NavLink>
           <NavLink>
             <Box display={{ base: 'none', md: 'block' }}>
-              <Link href="/search/clothes" passHref>
-                <Anchor as="a">トップス</Anchor>
+              <Link href="/search/clothes">
+                <Anchor>トップス</Anchor>
               </Link>
             </Box>
           </NavLink>
           <NavLink>
             <Box display={{ base: 'none', md: 'block' }}>
-              <Link href="/search/book" passHref>
-                <Anchor as="a">本</Anchor>
+              <Link href="/search/book">
+                <Anchor>本</Anchor>本
               </Link>
             </Box>
           </NavLink>
           <NavLink>
             <Box display={{ base: 'none', md: 'block' }}>
-              <Link href="/search/shoes" passHref>
-                <Anchor as="a">シューズ</Anchor>
+              <Link href="/search/shoes">
+                <Anchor>シューズ</Anchor>
               </Link>
             </Box>
           </NavLink>
@@ -90,16 +90,16 @@ const Header = () => {
         <Nav as="nav" height="56px" alignItems="center">
           <NavLink>
             <Box display={{ base: 'block', md: 'none' }}>
-              <Link href="/search" passHref>
-                <Anchor as="a">
+              <Link href="/search">
+                <Anchor>
                   <SearchIcon />
                 </Anchor>
               </Link>
             </Box>
           </NavLink>
           <NavLink>
-            <Link href="/cart" passHref>
-              <Anchor as="a">
+            <Link href="/cart">
+              <Anchor>
                 <BadgeIconButton
                   icon={<ShoppingCartIcon size={24} />}
                   size="24px"
@@ -114,13 +114,12 @@ const Header = () => {
               // 認証していたらアイコンを表示
               if (authUser) {
                 return (
-                  <Link href={`/users/${authUser.id}`} passHref>
-                    <Anchor as="a">
+                  <Link href={`/users/${authUser.id}`}>
+                    <Anchor>
                       <ShapeImage
+                        alt="Product Image"
                         shape="circle"
                         src={authUser.profileImageUrl}
-                        width={24}
-                        height={24}
                         data-testid="profile-shape-image"
                       />
                     </Anchor>
@@ -132,8 +131,8 @@ const Header = () => {
               } else {
                 // サインインしてない場合はアイコンを表示
                 return (
-                  <Link href="/signin" passHref>
-                    <Anchor as="a">
+                  <Link href="/signin">
+                    <Anchor>
                       <PersonIcon size={24} />
                     </Anchor>
                   </Link>
@@ -142,8 +141,8 @@ const Header = () => {
             })()}
           </NavLink>
           <NavLink>
-            <Link href="/sell" passHref>
-              <Button as="a">出品</Button>
+            <Link href="/sell">
+              <MyButton>出品</MyButton>
             </Link>
           </NavLink>
         </Nav>

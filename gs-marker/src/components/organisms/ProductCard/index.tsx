@@ -49,17 +49,6 @@ const ProductCardInfo = styled.div`
  * 商品カード
  */
 const ProductCard = ({ title, price, imageUrl, blurDataUrl, variant = 'listing' }: ProductCardProps) => {
-  const { size, imgSize } = (() => {
-    switch (variant) {
-      case 'detail':
-        return { size: { base: '320px', md: '540px' }, imgSize: 540 };
-      case 'listing':
-        return { size: { base: '160px', md: '240px' }, imgSize: 240 };
-      default:
-        return { size: { base: '160px' }, imgSize: 160 };
-    }
-  })();
-
   return (
     <ProductCardContainer>
       {variant !== 'small' && (
@@ -98,26 +87,14 @@ const ProductCard = ({ title, price, imageUrl, blurDataUrl, variant = 'listing' 
       <ProductCardImageContainer>
         {blurDataUrl && (
           <ScaleImage
+            alt="Product Image"
             src={imageUrl}
-            width={imgSize ?? 240}
-            height={imgSize ?? 240}
-            containerWidth={size}
-            containerHeight={size}
-            objectFit="cover"
+            style={{ objectFit: 'cover' }}
             placeholder="blur"
             blurDataURL={blurDataUrl}
           />
         )}
-        {!blurDataUrl && (
-          <ScaleImage
-            src={imageUrl}
-            width={imgSize ?? 240}
-            height={imgSize ?? 240}
-            containerWidth={size}
-            containerHeight={size}
-            objectFit="cover"
-          />
-        )}
+        {!blurDataUrl && <ScaleImage alt="Product Image" style={{ objectFit: 'cover' }} src={imageUrl} />}
       </ProductCardImageContainer>
       {variant === 'small' && (
         <Box marginTop={1}>

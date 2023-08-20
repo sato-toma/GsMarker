@@ -2,7 +2,7 @@ import type { GetStaticPaths, GetStaticProps, GetStaticPropsContext, InferGetSta
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react';
-import BreadcrumbItem from './../../components/atoms/BreadcrumbItem';
+import BreadcrumbItem from './../../components/atoms/MyBreadcrumbItem';
 import Separator from './../../components/atoms/Separator';
 import Text from './../../components/atoms/Text';
 import Box from './../../components/layout/Box';
@@ -59,17 +59,17 @@ const ProductPage: NextPage<ProductPageProps> = ({ id, product: initial }: Produ
           <Breadcrumb>
             <BreadcrumbItem>
               <Link href="/" legacyBehavior>
-                <a>トップ</a>
+                トップ
               </Link>
             </BreadcrumbItem>
             <BreadcrumbItem>
               <Link href="/search" legacyBehavior>
-                <a>検索</a>
+                検索
               </Link>
             </BreadcrumbItem>
             <BreadcrumbItem>
               <Link href={`/search/${product.category}`} legacyBehavior>
-                <a>{categoryNameDict[product.category as Category]}</a>
+                {categoryNameDict[product.category as Category]}
               </Link>
             </BreadcrumbItem>
             <BreadcrumbItem>{product.title}</BreadcrumbItem>
@@ -83,15 +83,13 @@ const ProductPage: NextPage<ProductPageProps> = ({ id, product: initial }: Produ
               出品者
             </Text>
             <Link href={`/users/${product.owner.id}`} legacyBehavior>
-              <a>
-                {/* ユーザープロファイル */}
-                <UserProfile
-                  variant="small"
-                  username={product.owner.username}
-                  profileImageUrl={product.owner.profileImageUrl}
-                  numberOfProducts={100}
-                />
-              </a>
+              {/* ユーザープロファイル */}
+              <UserProfile
+                variant="small"
+                username={product.owner.username}
+                profileImageUrl={product.owner.profileImageUrl}
+                numberOfProducts={100}
+              />
             </Link>
           </Box>
         </Box>

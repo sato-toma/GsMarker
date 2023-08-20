@@ -2,7 +2,7 @@ import type { GetStaticPaths, GetStaticPropsContext, InferGetStaticPropsType, Ne
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react';
-import BreadcrumbItem from './../../components/atoms/BreadcrumbItem';
+import BreadcrumbItem from './../../components/atoms/MyBreadcrumbItem';
 import Separator from './../../components/atoms/Separator';
 import Box from './../../components/layout/Box';
 import Flex from './../../components/layout/Flex';
@@ -38,7 +38,7 @@ const UserPage: NextPage<UserPageProps> = ({ id, user, products }: UserPageProps
             <Breadcrumb>
               <BreadcrumbItem>
                 <Link href="/" legacyBehavior>
-                  <a>トップ</a>
+                  トップ
                 </Link>
               </BreadcrumbItem>
               {user && <BreadcrumbItem>{user.username}</BreadcrumbItem>}
