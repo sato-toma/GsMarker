@@ -1,19 +1,9 @@
 import Image, { ImageProps } from 'next/image';
 import React from 'react';
 import styled from 'styled-components';
-  containerHeight?: Responsive<string>;
-};
-
-const ScaleEffectImageContainer = styled.div<{
-  width: Responsive<string>;
-  height: Responsive<string>;
-}>`
-  overflow: hidden;
-  ${({ width, theme }) => toPropValue('width', width, theme)}
-  ${({ height, theme }) => toPropValue('height', height, theme)}
-`;
 
 const ScaleEffectImage = styled(Image)`
+  overflow: hidden;
   transition: transform 0.5s linear;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   &:hover {
