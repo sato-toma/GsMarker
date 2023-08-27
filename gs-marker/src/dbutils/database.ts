@@ -13,11 +13,12 @@ export class DBCommon {
 
       const createTableQuery = `
         CREATE TABLE IF NOT EXISTS ${sample_table} (
+        id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
         title TEXT,
         image TEXT,
         price TEXT,
         description TEXT,
-        email TEXT primary key
+        email TEXT
         )
       `;
       await new Promise<void>((resolve, reject) => {
@@ -36,6 +37,7 @@ export class DBCommon {
 }
 
 export type User = {
+  id: number;
   title: string;
   image: string;
   price: string;
