@@ -1,27 +1,22 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { DBCommon } from 'dbutils/database';
 
-const updateItem = async (req: NextApiRequest, res: NextApiResponse) => {
+const deleteItem = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const db = await DBCommon.instance();
     console.log(req.query.id);
     const sample_table = 'SampleTable';
-    console.log('prepare updateItem');
-    const updatedData = req.body;
+    console.log('prepare deleteItem');
 
-    const updateClauses = Object.keys(updatedData)
-      .map((key) => `${key} = ?`)
-      .join(', ');
-    const updateValues = Object.values(updatedData);
-    const updateStatement = `UPDATE ${sample_table} SET ${updateClauses} WHERE id = ?`;
-    updateValues.push(req.query.id);
+    const deleteStatement = `DELETE FROM ${sample_table} WHERE id = ?`;
     await new Promise<void>((resolve, reject) => {
-      db.run(updateStatement, updateValues, async (err) => {
+      db.run(deleteStatement, [req.query.id], async (err) => {
         if (err) {
+          console.error('Error occurred:', err);
           res.status(500).json({ message: 'エラーが発生しました。' });
           reject(err);
         } else {
-          res.status(200).json({ message: 'アイテム更新成功' });
+          res.status(200).json({ message: 'アイテム削除成功' });
           resolve();
         }
       });
@@ -32,4 +27,4 @@ const updateItem = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 };
 
-export default updateItem;
+export default deleteItem;
