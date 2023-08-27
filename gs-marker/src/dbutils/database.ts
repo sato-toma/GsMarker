@@ -1,11 +1,11 @@
-import sqlite3, { Database } from 'sqlite3';
-const path = require('path');
+import * as path from 'path';
+import { Database } from 'sqlite3';
 
 export class DBCommon {
   private static _database: Database;
-  private constructor() { }
-  
-  public static async instance(): Promise<Database>  {
+  private constructor() {}
+
+  public static async instance(): Promise<Database> {
     if (!this._database) {
       // const database = new Database(':memory:');
       this._database = new Database(`${path.resolve()}\\test.db`);
@@ -29,9 +29,8 @@ export class DBCommon {
           }
         });
       });
-
     }
-    
+
     return this._database;
   }
 }

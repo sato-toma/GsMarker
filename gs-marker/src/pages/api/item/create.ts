@@ -29,21 +29,8 @@ const createItem = async (req: NextApiRequest, res: NextApiResponse) => {
         },
       );
     });
-    const selectStatement = `SELECT * FROM ${sample_table}`;
 
-    const rows: Array<any> = await new Promise((resolve, reject) => {
-      db.all(selectStatement, [], (err, rows) => {
-        if (err) {
-          reject(err);
-        } else {
-          resolve(rows);
-        }
-      });
-    });
-
-    rows.forEach((v: any) => console.log(v));
-
-    res.status(200).json({ name: 'アイテム作成' });
+    res.status(200).json({ message: 'アイテム作成' });
     await new Promise<void>((resolve, reject) => {
       db.close((err) => {
         if (err) {
@@ -55,7 +42,7 @@ const createItem = async (req: NextApiRequest, res: NextApiResponse) => {
     });
   } catch (error) {
     console.error('Error occurred:', error);
-    res.status(500).json({ error: 'Internal server error' }); // 例外が発生した場合のエラーレスポンス
+    res.status(500).json({ error: 'Internal server error' });
   }
 };
 
