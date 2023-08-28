@@ -5,9 +5,9 @@ const getSingleItem = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const db = await DBCommon.instance();
     console.log(req.query.id);
-    const sample_table = 'SampleTable';
+    const item_table = 'ItemTable';
 
-    const selectStatement = `SELECT * FROM ${sample_table} WHERE id = ?`;
+    const selectStatement = `SELECT * FROM ${item_table} WHERE id = ?`;
     const rows: Array<User> = await new Promise((resolve, reject) => {
       db.all(selectStatement, [req.query.id], (err, rows) => {
         if (err) {

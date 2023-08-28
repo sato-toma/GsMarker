@@ -5,10 +5,10 @@ const deleteItem = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const db = await DBCommon.instance();
     console.log(req.query.id);
-    const sample_table = 'SampleTable';
+    const item_table = 'ItemTable';
     console.log('prepare deleteItem');
 
-    const deleteStatement = `DELETE FROM ${sample_table} WHERE id = ?`;
+    const deleteStatement = `DELETE FROM ${item_table} WHERE id = ?`;
     await new Promise<void>((resolve, reject) => {
       db.run(deleteStatement, [req.query.id], async (err) => {
         if (err) {

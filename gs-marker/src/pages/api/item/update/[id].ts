@@ -5,7 +5,7 @@ const updateItem = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const db = await DBCommon.instance();
     console.log(req.query.id);
-    const sample_table = 'SampleTable';
+    const item_table = 'ItemTable';
     console.log('prepare updateItem');
     const updatedData = req.body;
 
@@ -13,7 +13,7 @@ const updateItem = async (req: NextApiRequest, res: NextApiResponse) => {
       .map((key) => `${key} = ?`)
       .join(', ');
     const updateValues = Object.values(updatedData);
-    const updateStatement = `UPDATE ${sample_table} SET ${updateClauses} WHERE id = ?`;
+    const updateStatement = `UPDATE ${item_table} SET ${updateClauses} WHERE id = ?`;
     updateValues.push(req.query.id);
     await new Promise<void>((resolve, reject) => {
       db.run(updateStatement, updateValues, async (err) => {

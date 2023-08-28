@@ -4,9 +4,9 @@ import { DBCommon, User } from 'dbutils/database';
 const getAllItems = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const db = await DBCommon.instance();
-    const sample_table = 'SampleTable';
+    const item_table = 'ItemTable';
 
-    const selectStatement = `SELECT * FROM ${sample_table}`;
+    const selectStatement = `SELECT * FROM ${item_table}`;
 
     const rows: Array<User> = await new Promise((resolve, reject) => {
       db.all(selectStatement, [], (err, rows) => {

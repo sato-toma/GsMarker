@@ -9,10 +9,10 @@ export class DBCommon {
     if (!this._database) {
       // const database = new Database(':memory:');
       this._database = new Database(`${path.resolve()}\\test.db`);
-      const sample_table = 'SampleTable';
+      const item_table = 'ItemTable';
 
-      const createTableQuery = `
-        CREATE TABLE IF NOT EXISTS ${sample_table} (
+      const createItemTableQuery = `
+        CREATE TABLE IF NOT EXISTS ${item_table} (
         id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
         title TEXT,
         image TEXT,
@@ -22,7 +22,7 @@ export class DBCommon {
         )
       `;
       await new Promise<void>((resolve, reject) => {
-        this._database.run(createTableQuery, (err) => {
+        this._database.run(createItemTableQuery, (err) => {
           if (err) {
             reject(err);
           } else {

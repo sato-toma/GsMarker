@@ -5,7 +5,7 @@ const createItem = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const db = await DBCommon.instance();
 
-    const sample_table = 'SampleTable';
+    const item_table = 'ItemTable';
 
     console.log(`
      req.body.title:${req.body.title}
@@ -15,7 +15,7 @@ const createItem = async (req: NextApiRequest, res: NextApiResponse) => {
      req.body.email:${req.body.email}
      `);
 
-    const insertStatement = `INSERT INTO ${sample_table}(title, image, price, description, email) VALUES(?, ?, ?, ?, ?)`;
+    const insertStatement = `INSERT INTO ${item_table}(title, image, price, description, email) VALUES(?, ?, ?, ?, ?)`;
     await new Promise<void>((resolve, reject) => {
       db.run(
         insertStatement,
