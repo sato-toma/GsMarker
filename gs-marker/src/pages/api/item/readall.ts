@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { DBCommon, User } from 'dbutils/database';
+import { DBCommon, Item } from 'dbutils/database';
 
 const getAllItems = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
@@ -8,18 +8,18 @@ const getAllItems = async (req: NextApiRequest, res: NextApiResponse) => {
 
     const selectStatement = `SELECT * FROM ${item_table}`;
 
-    const rows: Array<User> = await new Promise((resolve, reject) => {
+    const rows: Array<Item> = await new Promise((resolve, reject) => {
       db.all(selectStatement, [], (err, rows) => {
         if (err) {
           reject(err);
         } else {
-          const userRows: Array<User> = rows as Array<User>;
-          resolve(userRows);
+          const itemRows: Array<Item> = rows as Array<Item>;
+          resolve(itemRows);
         }
       });
     });
 
-    rows.forEach((v: User) => console.log(v));
+    rows.forEach((v: Item) => console.log(v));
 
     res.status(200).json({ message: 'アイテム読み取り成功(all)', allitems: rows });
   } catch (error) {

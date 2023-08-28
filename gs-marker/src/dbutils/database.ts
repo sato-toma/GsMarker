@@ -30,17 +30,43 @@ export class DBCommon {
           }
         });
       });
-    }
 
+      const user_table = 'UserTable';
+
+      const createUserTableQuery = `
+        CREATE TABLE IF NOT EXISTS ${user_table} (
+        id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+        name TEXT NOT NULL,
+        email TEXT NOT NULL UNIQUE,
+        password TEXT NOT NULL
+        )
+      `;
+      await new Promise<void>((resolve, reject) => {
+        this._database.run(createUserTableQuery, (err) => {
+          if (err) {
+            reject(err);
+          } else {
+            resolve();
+          }
+        });
+      });
+    }
     return this._database;
   }
 }
 
-export type User = {
+export type Item = {
   id: number;
   title: string;
   image: string;
   price: string;
   description: string;
   email: string;
+};
+
+export type User = {
+  id: number;
+  name: string;
+  email: string;
+  password: string;
 };
