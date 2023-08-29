@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import auth from './../../../../dbutils/auth';
 import { DBCommon } from 'dbutils/database';
 
 const deleteItem = async (req: NextApiRequest, res: NextApiResponse) => {
@@ -27,4 +28,4 @@ const deleteItem = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 };
 
-export default deleteItem;
+export default auth(deleteItem);

@@ -1,6 +1,8 @@
+import jwt from 'jsonwebtoken';
 import { NextApiRequest, NextApiResponse } from 'next';
 import { DBCommon, User } from 'dbutils/database';
 
+const secret_key = 'gs-maker';
 const loginUser = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const db = await DBCommon.instance();
@@ -34,7 +36,9 @@ const loginUser = async (req: NextApiRequest, res: NextApiResponse) => {
         continue;
       } else {
         rows.forEach((v: User) => console.log(v));
-        res.status(200).json({ message: 'ログイン成功' });
+        const payload = { email: req.body.email };
+        const token = jwt.sign(payload, secret_key, { expiresIn: '23h' });
+        res.status(200).json({ message: 'ログイン成功', token: token });
         return;
       }
     }

@@ -1,4 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
+import auth from './../../../../dbutils/auth';
 import { DBCommon } from 'dbutils/database';
 
 const updateItem = async (req: NextApiRequest, res: NextApiResponse) => {
@@ -32,4 +33,4 @@ const updateItem = async (req: NextApiRequest, res: NextApiResponse) => {
   }
 };
 
-export default updateItem;
+export default auth(updateItem);
