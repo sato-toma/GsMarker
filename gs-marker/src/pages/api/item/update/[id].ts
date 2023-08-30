@@ -1,13 +1,37 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import auth from './../../../../dbutils/auth';
-import { DBCommon } from 'dbutils/database';
+import { DBCommon, Item } from 'dbutils/database';
 
 const updateItem = async (req: NextApiRequest, res: NextApiResponse) => {
   try {
     const db = await DBCommon.instance();
     console.log(req.query.id);
     const item_table = 'ItemTable';
+
+    const selectStatement = `SELECT * FROM ${item_table} WHERE id = ?`;
+    const rows: Array<Item> = await new Promise((resolve, reject) => {
+      db.all(selectStatement, [req.query.id], (err, rows) => {
+        if (err) {
+          reject(err);
+        } else {
+          const itemRows: Array<Item> = rows as Array<Item>;
+          resolve(itemRows);
+        }
+      });
+    });
+
+    if (rows.length != 1) {
+      return res.status(500).json({ error: 'Internal server error' });
+    }
+    rows.forEach((v: Item) => {
+      console.log(v);
+      if (v.email != req.body.email) {
+        return res.status(500).json({ error: 'Internal server error' });
+      }
+    });
+
     console.log('prepare updateItem');
+    
     const updatedData = req.body;
 
     const updateClauses = Object.keys(updatedData)
