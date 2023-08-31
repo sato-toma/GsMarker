@@ -2,9 +2,9 @@ import type { NextPage } from 'next';
 import React, { useState, ChangeEvent, FormEvent } from 'react';
 
 const Regiser: NextPage = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [name, setName] = useState('名前');
+  const [email, setEmail] = useState('メールアドレス');
+  const [password, setPassword] = useState('パスワード');
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -12,7 +12,7 @@ const Regiser: NextPage = () => {
       const response = await fetch('http://localhost:3000/api/user/register', {
         method: 'POST',
         headers: {
-          Accept: 'application/json',
+          'Accept': 'application/json',
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
